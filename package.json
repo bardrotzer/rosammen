@@ -1,0 +1,8 @@
+{
+  "name": "rosammen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:bardrotzer/rosammen.git",
+  "author": "Bård Røtzer <bard@kartoteket.as>",
+  "license": "MIT"
+}
