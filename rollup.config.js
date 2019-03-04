@@ -2,6 +2,9 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import json from 'rollup-plugin-json';
+import builtins from 'rollup-plugin-node-builtins';
+import globals from 'rollup-plugin-node-globals';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -33,8 +36,23 @@ export default {
 		// some cases you'll need additional configuration —
 		// consult the documentation for details:
 		// https://github.com/rollup/rollup-plugin-commonjs
-		resolve(),
-		commonjs(),
+		resolve({
+			module: true,
+      jsnext: true,
+			main: true,
+    }),
+		commonjs({
+			include: 'node_modules/**',
+			browser: true,
+			preferBuiltins: false,
+			// if true then uses of `global` won't be dealt with by this plugin
+			ignoreGlobal: false,  // Default: false
+		}),
+		json(),
+		builtins(),
+		globals({
+			process: true
+		}),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
