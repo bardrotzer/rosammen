@@ -25,6 +25,7 @@
     "start:dev": "sirv public --dev"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "leaflet": "^1.4.0"
   }
 }
