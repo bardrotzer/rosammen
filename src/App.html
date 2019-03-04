@@ -1,7 +1,26 @@
-<h1>Hello {name}!</h1>
+<div>
+	<div>
+		<h1>{name}!</h1>
+	</div>
+	<Map/>
+	<div>
+		Footer
+	</div>
 
+</div>
+
+<script>
+	import Map from './Map.html';
+
+	export default {
+		components: {
+			Map
+		}
+	};
+</script>
 <style>
 	h1 {
 		color: purple;
 	}
+
 </style>

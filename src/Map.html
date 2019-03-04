@@ -1,0 +1,41 @@
+<svelte:head>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">
+</svelte:head>
+<div id="map"></div>
+
+<script>
+	import L from 'leaflet';
+
+	export default {
+		oncreate() {
+      console.log('created', L);
+      const center = new L.latLng(20.2750, -27.7590);
+
+			const map = L.map('map', {
+					center,
+					zoom: 3
+			});
+      const tilemap = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        subdomains: 'abcd',
+        minZoom: 1,
+        maxZoom: 16,
+        ext: 'jpg'
+      }).addTo(map);
+
+      map.on('click', function (a, b, c) {
+        console.log(a,b,c);
+      });
+
+
+
+		}
+	}
+</script>
+<style>
+	#map {
+		height: 500px;
+		width: 100%
+	}
+
+</style>
