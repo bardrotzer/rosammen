@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "leaflet": "^1.4.0"
+    "leaflet": "^1.4.0",
+    "tailwindcss": "^0.7.4"
   }
 }
