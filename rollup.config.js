@@ -5,6 +5,8 @@ import { terser } from 'rollup-plugin-terser';
 import json from 'rollup-plugin-json';
 import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
+import postcss from 'rollup-plugin-postcss';
+import purgecss from 'rollup-plugin-purgecss';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -26,11 +28,17 @@ export default {
 			dev: !production,
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
+			emitCss: true,
 			css: css => {
 				css.write('public/bundle.css');
 			}
 		}),
-
+		purgecss({
+			content: ['App.html']
+    }),
+		postcss({
+			extract: true
+		}),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration —
