@@ -1,0 +1,7 @@
+.openmenu {
+  @apply w-full block flex-grow lg:flex lg:items-center lg:w-auto;
+}
+  
+.closedmenu {
+  @apply w-full hidden flex-grow lg:flex lg:items-center lg:w-auto;
+}
