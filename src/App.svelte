@@ -17,7 +17,7 @@
 				</a>
 			</div>
 			<div>
-				<a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue hover:bg-white mt-4 lg:mt-0">Donér</a>
+				<a href="#donations" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue hover:bg-white mt-4 lg:mt-0">Donér</a>
 			</div>
 		</div>
 	</nav>
@@ -36,7 +36,7 @@
 </div>
 
 <script>
-	import Map from './Map.html';
+	import Map from './Map.svelte';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
@@ -59,9 +59,6 @@
 	};
 </script>
 <style>
-	.openMenu {
-		@apply w-full hidden flex-grow lg:flex lg:items-center lg:w-auto;
-	}
 	h1 {
 		color: purple;
 	}
