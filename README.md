@@ -13,15 +13,19 @@ cd rosammen
 yarn install
 ```
 
-...then start [Rollup](https://rollupjs.org):
+Updated the repo to use [webpack](https://webpack.js.org) 4.:
 
 ```bash
 yarn dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+Navigate to [localhost:5000](http://localhost:8080). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 
-## Deploying to the web
+## Building
 
-just push the master branch, it will build
+```bash
+yarn build
+```
+
+All bundled files written to ``./dest``
