@@ -1,32 +1,45 @@
-<nav class="flex items-center justify-between flex-wrap bg-blue p-6">
-		<div class="block lg:hidden">
+<nav class="flex items-center justify-between flex-wrap bg-blue-darker p-6">
+		<div class="block sm:hidden">
 			<button ref:menubutton class="flex items-center px-3 py-2 border rounded text-blue-lighter border-blue-light hover:text-white hover:border-white" on:click="togglemenu()">
 				<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
 			</button>
 		</div>
-		<div  class="{ isMenuOpen ? 'openmenu' : 'closedmenu'}">
-			<div class="text-sm lg:flex-grow">
-				<a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-blue-lighter hover:text-white mr-4">
+		<div  class="w-full flex-grow sm:flex sm:items-center sm:w-auto" class:hidden="!isMenuOpen">
+			<div class="text-sm sm:flex-grow">
+				<a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
 					Hvem
 				</a>
-				<a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-blue-lighter hover:text-white mr-4">
+				<a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
 					Hva
 				</a>
-				<a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-blue-lighter hover:text-white">
+				<a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white">
 					Hvor
 				</a>
 			</div>
 			<div>
-				<a href="#donations" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue hover:bg-white mt-4 lg:mt-0">Donér</a>
+				<a href="#donations" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue hover:bg-white mt-4 sm:mt-0">Donér</a>
 			</div>
 		</div>
 	</nav>
 
 <div>
-	<div>
-		<h1>{name}!</h1>
-		<img alt="row" src="img/rowing.jpg"/><br/>
-		We are going to row quite a bit
+		<img alt="row" src="img/boat.jpg"/><br/>
+	<!-- what -->
+	<div id="what" class="container p-2">
+		<h1>The Pacific Challenge</h1>
+		I April 2019 skal 4 personer sette ny verdensrekord ved å ro over Atlanterhavet
+	</div>
+	<!-- Who -->
+	<div id="who">
+	<img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="img/jacob.jpg" alt="">
+	</div>
+	<!-- where -->
+	<div id="where">
+		where
+	</div>
+	<!-- donate -->
+	<div id="donate">
+		donate
 	</div>
 	<Map/>
 	<div>
@@ -61,8 +74,9 @@
 	};
 </script>
 <style>
-	h1 {
-		color: purple;
+	img {
+		width: 100%;
+		height: auto;
 	}
 
 </style>
