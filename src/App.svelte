@@ -17,7 +17,7 @@
 				</a>
 			</div>
 			<div>
-				<a href="#donations" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue hover:bg-white mt-4 sm:mt-0">Donér</a>
+				<a href="#donate" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue hover:bg-white mt-4 sm:mt-0">Donér</a>
 			</div>
 		</div>
 	</nav>
@@ -39,23 +39,27 @@
 	</div>
 	<!-- donate -->
 	<div id="donate">
-		donate
+		<Donate/>
 	</div>
-	<Map/>
-	<div>
-		Footer
+
+	<div class="p-6">
+		using <a href="https://svelte.technology">Svelte</a> coded by <a href="https://kartoteket.as">Kartoteket AS</a>
 	</div>
 
 </div>
 
 <script>
 	import Map from './Map.svelte';
+	import Who from './Who.svelte';
+	import Donate from './Donate.svelte';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
 	export default {
 		components: {
-			Map
+			Map,
+			Who,
+			Donate,
 		},
 		data() {
 			return {
