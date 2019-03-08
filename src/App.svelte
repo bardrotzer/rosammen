@@ -6,7 +6,7 @@
 		</div>
 		<div  class="w-full flex-grow sm:flex sm:items-center sm:w-auto" class:hidden="!isMenuOpen">
 			<div class="text-sm sm:flex-grow">
-				<a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
+				<a href="#who" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
 					Hvem
 				</a>
 				<a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
@@ -30,8 +30,8 @@
 		I April 2019 skal 4 personer sette ny verdensrekord ved å ro over Atlanterhavet
 	</div>
 	<!-- Who -->
-	<div id="who">
-	<img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="img/jacob.jpg" alt="">
+	<div id="who" class="container p-4">
+		<Who/>
 	</div>
 	<!-- where -->
 	<div id="where">
