@@ -9,7 +9,7 @@
 				<a href="#who" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
 					Hvem
 				</a>
-				<a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
+				<a href="#what" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
 					Hva
 				</a>
 				<a href="#where" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white">
@@ -25,8 +25,8 @@
 <div>
 		<img alt="row" src="img/boat.jpg"/><br/>
 	<!-- what -->
-	<div id="what" class="container p-2">
-		<h1>The Pacific Challenge</h1>
+	<div id="what" class="container p-6">
+		<h1 class="pb-6">Atlanterhavet, fiske og robåt</h1>
 		I April 2019 skal 4 personer sette ny verdensrekord ved å ro over Atlanterhavet
 	</div>
 	<!-- Who -->
