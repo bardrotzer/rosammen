@@ -1,23 +1,37 @@
-<svelte:head>
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">
-</svelte:head>
-<div id="map"></div>
+<div id="map" on:focus="focusme()" on:blur="blurme()"></div>
 
 <script>
   import L from 'leaflet';
   import Axios from 'axios';
+  import './css/custom.css'
+
+  let maps
 
 	export default {
+    methods: {
+      focusme() {
+        console.log(maps);
+        maps.scrollWheelZoom.enable();
+      },
+      blurme() {
+        console.log('blur');
+        maps.scrollWheelZoom.disable();
+        console.log(maps);
+      }
+    },
 		oncreate() {
       console.log('created', L);
       const center = new L.latLng(20.2750, -27.7590);
-
+      const oceantiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}';
+      const watercolor = 'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}';
 			const map = L.map('map', {
-					center,
+        center,
 					zoom: 3
 			});
-      const tilemap = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
-        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      map.scrollWheelZoom.disable();
+      maps = map;
+      const tilemap = L.tileLayer(oceantiles, {
+        // attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         subdomains: 'abcd',
         minZoom: 1,
         maxZoom: 16,

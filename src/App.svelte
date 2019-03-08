@@ -12,7 +12,7 @@
 				<a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
 					Hva
 				</a>
-				<a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white">
+				<a href="#where" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white">
 					Hvor
 				</a>
 			</div>
@@ -35,7 +35,7 @@
 	</div>
 	<!-- where -->
 	<div id="where">
-		where
+			<Map/>
 	</div>
 	<!-- donate -->
 	<div id="donate">
