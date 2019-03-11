@@ -1,74 +1,83 @@
-<div class="flex items-stretch bg-grey-lighter h-24">
-  <div class="flex-1 text-grey-darker text-center bg-grey-light px-4 py-2 m-2">
-    Velg hvem du vil støtte
+{#if !selectedReceiver}
+<div class="flex items-stretch">
+  <div class="flex-1 text-grey-darker px-4 py-2 m-2">
+    <h2>How to contribute</h2>
+    <p>I pay for the entire trip myself and would like to contribute to locally to <a href="http://ormsund.no/" target="_blank">Ormsund Roklubb</a> and globally to the <a href="https://www.rodekors.no/">Red Cross</a>. Accompany me on the ocean crossing by making a donation!</p>
   </div>
 </div>
-<div class="flex items-stretch bg-grey-lighter h-24">
-  {#if selectedReceiver !== 'rodekors'}
-  <div class="flex-1 text-grey-darker text-center bg-grey-light px-4 py-2 m-2">
-    <img on:click="selectDonationReceiver('ormsund')" src="img/ormsund-roklubb-logo.png" height="150" width="150" alt="Ormsund roklub"/>
-  </div>
-  {/if}
-  {#if selectedReceiver !== 'ormsund'}
-  <div class="flex-1 text-grey-darker text-center bg-grey-light px-4 py-2 m-2">
-     <img on:click="selectDonationReceiver('rodekors')" src="img/rode-kors-logo.png" height="150" width="150"  alt="Røde Kors"/>
-  </div>
-  {/if}
+
+<div class="sm:block md:flex lg:flex xl:flex">
+  {#each receivers as receiver}
+    <Receiver data={receiver} on:selected="selectDonationReceiver(receiver.id)" />
+  {/each}
 </div>
-
-{#if selectedReceiver}
-  <form action="/charge" method="post" id="payment-form">
-    <div class="form-row">
-      <label for="card-element">
-        Credit or debit card
-      </label>
-      <div id="card-element">
-        <!-- A Stripe Element will be inserted here. -->
-      </div>
-
-      <!-- Used to display form errors. -->
-      <div id="card-errors" role="alert"></div>
+<div class="flex items-stretch">
+    <div class="flex-1 text-grey-darker text-center px-4 py-2 m-2">
+      Those who donate will have your name, or the name of your company (please send the logo), on the boat and do the crossing with us!<br/> I suggest a donation of 5 øre per kilometre for private individuals (300 NOK), or 1 kroner per kilometre for companies (6000 NOK), but any donation is welcome.
     </div>
-
-    <button>Submit Payment</button>
-  </form>
-
+</div>
+{/if}
+{#if selectedReceiver}
+  <Pay data={selectedReceiver}/>
 {/if}
 
 
 
 
-
-
-
-
-
 <script>
+import Receiver from './Receiver.svelte';
+import Pay from './Pay.svelte';
 
 export default {
   data() {
     return {
       selectedReceiver: null,
+      paymentsInitialized: false,
+      receivers: [{
+        name: 'Røde Kors',
+        description: 'The Norwegian Red Cross mission is to reveal, prevent and alleviate human suffering and distress. The activities are grounded in local needs, resources and competencies, carried out by local volunteers.',
+        logo: 'rode-kors-logo.png',
+        link: 'https://www.rodekors.no/',
+        id: 'rodekors',
+      },{
+        name: 'Ormsund Roklubb',
+        description: 'Ormsund Roklubb is run by enthusiasts and contributes to an active and healthy Nedre Bekkelaget borough for young and old..',
+        logo: 'ormsund-roklubb-logo.png',
+        link: 'http://ormsund.no/',
+        id: 'ormsund',
+      }]
     }
+  },
+  components: {
+    Receiver,
+    Pay,
   },
   methods: {
     selectDonationReceiver(receiver) {
-      this.set({selectedReceiver: receiver});
+      const { receivers } = this.get();
+      const r = receivers.find(element => {
+        return element.id = receiver;
+      });
+      this.set({selectedReceiver: r});
+      this.initializePayment();
+    },
+    initializePayment() {
+      if (this.paymentsInitialized) {
+        return;
+      }
+      const stripe = Stripe('pk_test_8nPvazuUMzFU43Ae8foi5wbP');
+      const elements = stripe.elements();
+
+      var card = elements.create('card');
+      card.mount('#card-element');
+
+      // var promise = stripe.createToken(card);
+      // console.log(stripe, elements, promise);
+      // // promise.then(function(result) {
+      // //   // result.token is the card token.
+      // // });
     }
   },
-  oncreate() {
-    // var stripe = Stripe('pk_test_8nPvazuUMzFU43Ae8foi5wbP');
-    // var elements = stripe.elements();
-
-    // var card = elements.create('card');
-    // card.mount('#card-element');
-
-    // var promise = stripe.createToken(card);
-    // console.log(stripe, elements, promise);
-    // // promise.then(function(result) {
-    // //   // result.token is the card token.
-    // // });
-  }
 
 }
 </script>
