@@ -25,9 +25,25 @@
 <div>
 		<img alt="row" src="img/boat.jpg"/><br/>
 	<!-- what -->
-	<div id="what" class="container lg:container bg-blue-lighter p-6 mx-auto">
-		<h1 class="pb-6">Atlanterhavet, fiske og robåt</h1>
-		I April 2019 skal 4 personer sette ny verdensrekord ved å ro over Atlanterhavet
+	<div id="what" class="container lg:container p-6 mx-auto">
+		<h1 class="pb-6">The atlantic crossing</h1>
+		<p class="pb-4">
+		This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands). The crew members are:
+		</p>
+		<ul>
+		 	<li>Niklas Persson (Sweden)</li>
+			<li>James Morrisey (Ireland</li>
+			<li>Therese Lundgren (Sweden)</li>
+		  <li>Denis Gorbylev (Russia)</li>
+		  <li>Jacob Røthing (Norway)</li>
+		 </ul>
+		<p class="pb-2 pt-2">
+			The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
+		</p>
+		<p class="pb-2">
+			The ocean crossing will go from Portimão in Portugal to French Guyana, covering 3,300 nautical miles (6,000 kilometres). To cross the Atlantic Ocean the team can take advantage of tidal currents and trade winds.
+		</p>
+
 	</div>
 	<!-- Who -->
 	<div id="who" class="container p-4 mx-auto lg:container">

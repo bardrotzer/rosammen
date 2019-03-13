@@ -3,7 +3,7 @@
     <div class="text-center sm:text-left sm:flex-grow">
       <div class="mb-4">
         <p class="text-xl leading-tight">Håkon Jacob Røthing</p>
-        <p class="text-sm leading-tight text-grey-dark">Jacob is an experienced walker, biker and now also a rower</p>
+        <p class="text-sm leading-tight text-grey-dark">Håkon Jakob Røthing is an adventurer and manager based in Oslo with his wife and two sons. He has previously biked from North Cape to Cape Town and walked along the Blue Nile. He believes in dreams, and the value of making them come true.</p>
       </div>
     </div>
   </div>
