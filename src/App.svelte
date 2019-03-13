@@ -25,12 +25,12 @@
 <div>
 		<img alt="row" src="img/boat.jpg"/><br/>
 	<!-- what -->
-	<div id="what" class="container p-6">
+	<div id="what" class="container lg:container bg-blue-lighter p-6 mx-auto">
 		<h1 class="pb-6">Atlanterhavet, fiske og robåt</h1>
 		I April 2019 skal 4 personer sette ny verdensrekord ved å ro over Atlanterhavet
 	</div>
 	<!-- Who -->
-	<div id="who" class="container p-4">
+	<div id="who" class="container p-4 mx-auto lg:container">
 		<Who/>
 	</div>
 	<!-- where -->
@@ -38,8 +38,8 @@
 			<Map/>
 	</div>
 	<!-- donate -->
-	<div id="donate">
-		<Donate/>
+	<div id="donate"  class="container p-4 mx-auto lg:container">
+	donations on separate page
 	</div>
 
 	<div class="p-6">
