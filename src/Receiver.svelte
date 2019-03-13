@@ -24,7 +24,7 @@ export default {
   },
   oncreate() {
     const { data } = this.get();
-    console.log(data);
+    // console.log(data);
   }
 }
 </script>

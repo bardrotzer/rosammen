@@ -42,11 +42,11 @@
         console.log(a,b,c);
       });
 
-      Axios.get('https://ralph.travelmap.net/api/users/27165/trips/73428/spots')
-        .then(r => {
-          console.log(r);
-          console.log('done');
-        });
+      // Axios.get('https://ralph.travelmap.net/api/users/27165/trips/73428/spots')
+      //   .then(r => {
+      //     console.log(r);
+      //     console.log('done');
+      //   });
 
 		}
 	}

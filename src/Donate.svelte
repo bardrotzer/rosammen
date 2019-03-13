@@ -65,11 +65,52 @@ export default {
       if (this.paymentsInitialized) {
         return;
       }
-      const stripe = Stripe('pk_test_8nPvazuUMzFU43Ae8foi5wbP');
-      const elements = stripe.elements();
 
-      var card = elements.create('card');
-      card.mount('#card-element');
+      // var elementStyles = {
+      //   base: {
+      //     color: '#32325D',
+      //     fontWeight: 500,
+      //     fontFamily: 'Source Code Pro, Consolas, Menlo, monospace',
+      //     fontSize: '16px',
+      //     fontSmoothing: 'antialiased',
+
+      //     '::placeholder': {
+      //       color: '#CFD7DF',
+      //     },
+      //     ':-webkit-autofill': {
+      //       color: '#e39f48',
+      //     },
+      //   },
+      //   invalid: {
+      //     color: '#E25950',
+
+      //     '::placeholder': {
+      //       color: '#FFCCA5',
+      //     },
+      //   },
+      // };
+
+      // var elementClasses = {
+      //   focus: 'focused',
+      //   empty: 'empty',
+      //   invalid: 'invalid',
+      // };
+
+
+
+
+      // const stripe = Stripe('pk_test_8nPvazuUMzFU43Ae8foi5wbP');
+      // const elements = stripe.elements();
+
+      // const donate_to = elements.create('donate_to', {
+      //   style: elementStyles,
+      //   classes: elementClasses,
+      // });
+      // donate_to.mount('#donate_to');
+
+
+      // var card = elements.create('card');
+      // card.mount('#card-element');
 
       // var promise = stripe.createToken(card);
       // console.log(stripe, elements, promise);
