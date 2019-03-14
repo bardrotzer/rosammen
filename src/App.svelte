@@ -51,23 +51,24 @@
 	<!-- blocks for big screens-->
 	<div class="hidden sm:hidden  lg:block xl:block md:block">
 		<div class="w-full h-full bg-water boat__background  p-6 mx-auto t text-white text-xl relative">
+			<div  class="container lg:container p-4 mx-auto text-white">
+				<p class="pt-8 pb-8">
+				This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands). The crew members are:
+				</p>
 
-			<p class="pt-8 pb-8">
-			This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands). The crew members are:
-			</p>
-
-				<ul>
-					<li>Niklas Persson (Sweden)</li>
-					<li>James Morrisey (Ireland</li>
-					<li>Therese Lundgren (Sweden)</li>
-					<li>Denis Gorbylev (Russia)</li>
-					<li>Jacob Røthing (Norway) (me)</li>
-				</ul>
+					<ul>
+						<li>Niklas Persson (Sweden)</li>
+						<li>James Morrisey (Ireland</li>
+						<li>Therese Lundgren (Sweden)</li>
+						<li>Denis Gorbylev (Russia)</li>
+						<li>Jacob Røthing (Norway) (me)</li>
+					</ul>
 
 
-			<p class="pb-20 absolute pin-b">
-				The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
-			</p>
+				<p class=" container lg:container p-4 mx-auto pb-20 absolute pin-b">
+					The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
+				</p>
+			</div>
 		</div>
 
 	</div>
@@ -87,7 +88,7 @@
 	</div>
 	<!-- donate -->
 	<div id="donate"  class="container p-4 mx-auto lg:container h-screen scroll__child">
-	donations on separate page
+		<Donate/>
 	</div>
 
 	<div class="p-6">
@@ -99,7 +100,7 @@
 <script>
 	import Map from './Map.svelte';
 	import Who from './Who.svelte';
-	// import Donate from './Donate.svelte';
+	import Donate from './Donate.svelte';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
@@ -107,7 +108,7 @@
 		components: {
 			Map,
 			Who,
-			// Donate,
+			Donate,
 		},
 		data() {
 			return {
