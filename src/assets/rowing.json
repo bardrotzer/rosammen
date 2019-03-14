@@ -1,0 +1,10 @@
+[
+  {"id":1760766,"id_transport":749,"city":"Start 1st April, Portim\u00e3o Portugal","lon":-8.52557,"lat":37.11547,"date":"2019-04-01 10:53:34"},
+  {"id":1612371,"id_transport":3,"id_spot":1612376,"city":"Cayenne","id_country":"GF","lon":-52.283416,"lat":4.852549,"comment":"Completed: <strong>100%<\/strong> Distance from start: 5 977 km Distance to finish: 0 km","id_icon":1,"is_free":true,"is_future":true},
+  {"id":1612372,"id_transport":3,"id_spot":1606134,"city":"Waypoint 1","lon":-12.21,"lat":32.67,"comment":"Completed: <strong>10%<\/strong> Distance from start: 598 km Distance to finish: 5 378 km","is_free":true,"is_future":true},
+  {"id":1612373,"id_transport":3,"id_spot":1612372,"city":"Canary Islands","id_country":"ES","lon":-15.8834,"lat":28.2171,"comment":"Completed: <strong>20%<\/strong> Distance from start: 1 205 km Distance to finish: 4 772 km","is_free":true,"is_future":true},
+  {"id":1612374,"id_transport":3,"id_spot":1612373,"city":"Cape Verde","lon":-26,"lat":18,"comment":"Completed: <strong>45%<\/strong> Distance from start: 2 738 km Distance to finish: 3 239 km","is_free":true,"is_future":true},
+  {"id":1612375,"id_transport":3,"id_spot":1612374,"city":"Waypoint 2","lon":-38,"lat":11.5,"comment":"Completed: <strong>70%<\/strong> Distance from start: 4 216 km Distance to finish: 1 761 km","is_free":true,"is_future":true},
+  {"id":1612376,"id_transport":3,"id_spot":1612375,"city":"Waypoint 2","lon":-50,"lat":5,"comment":"Completed: <strong>95%<\/strong> Distance from start: 5 720 km Distance to finish: 257 km","is_free":true,"is_future":true},  
+  {"id":1760768,"id_transport":749,"city":"End approx 17th May, Cayenne French Guyana","lon":-52.283416,"lat":4.852549,"date":"2019-05-17 10:53:34"}
+]
