@@ -7,10 +7,21 @@ body {
   scroll-snap-type: y mandatory;
 }
 
+.frontpage__image {
+  width: 100%;
+  height: auto;
+}
+
 .scroll__child {
   scroll-snap-align: start;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+  /* border-top: 1px solid #333;
+  border-bottom: 1px solid #333; */
+}
+
+.boat__background {
+  background-image: url('/img/frontpage.jpeg');
+  background-size: cover;
+  background-position-x: center;
 }
 
 .waypoint__icon {
