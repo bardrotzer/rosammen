@@ -22,14 +22,13 @@
     "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
-    "build": "yarn webpack --mode production",
-    "autobuild": "yarn tailwind && rollup -c -w",
+    "build": "yarn tailwind && webpack --mode production",
     "dev": "yarn webpack-dev-server --mode development",
     "start": "sirv public",
     "start:dev": "sirv public --dev",
     "tailwind": "yarn tailwind:normalize && yarn tailwind:css",
-    "tailwind:normalize": "tailwind build src/css/normalize.src.css -c tailwind.js -o src/css/normalize.css",
-    "tailwind:css": "tailwind build src/css/tailwind.src.css -c tailwind.js -o src/css/tailwind.css"
+    "tailwind:normalize": "tailwind build src/css/normalize.css.src -c tailwind.config.js -o src/css/normalize.css",
+    "tailwind:css": "tailwind build src/css/tailwind.css.src -c tailwind.config.js -o src/css/tailwind.css"
   },
   "dependencies": {
     "axios": "^0.18.0",
