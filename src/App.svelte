@@ -1,45 +1,66 @@
-<nav class="flex items-center justify-between flex-wrap bg-blue-darker p-6  scroll__child">
+<div id="what" class=" h-screen scroll__child bg-water-darkest ">
+<nav class="flex items-center justify-between flex-wrap bg-water-darkest p-6  scroll__child">
+  <div class="flex items-center flex-no-shrink text-white mr-6">
+    <span class="font-semibold text-xl tracking-tight">The Atlantic crossing</span>
+  </div>
 		<div class="block sm:hidden">
-			<button ref:menubutton class="flex items-center px-3 py-2 border rounded text-blue-lighter border-blue-light hover:text-white hover:border-white" on:click="togglemenu()">
+			<button ref:menubutton class="flex items-center px-3 py-2 border rounded text-water-lighter border-water-light hover:text-white hover:border-white" on:click="togglemenu()">
 				<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
 			</button>
 		</div>
 		<div  class="w-full flex-grow sm:flex sm:items-center sm:w-auto" class:hidden="!isMenuOpen">
 			<div class="text-sm sm:flex-grow">
-				<a href="#who" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
-					Hvem
+				<a href="#who" class="block mt-4 sm:inline-block sm:mt-0 text-water-lighter hover:text-white mr-4">
+					About me
 				</a>
-				<a href="#what" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white mr-4">
-					Hva
+				<a href="#what" class="block mt-4 sm:inline-block sm:mt-0 text-water-lighter hover:text-white mr-4">
+					The Atlanctic crossing
 				</a>
-				<a href="#where" class="block mt-4 sm:inline-block sm:mt-0 text-blue-lighter hover:text-white">
-					Hvor
+				<a href="#where" class="block mt-4 sm:inline-block sm:mt-0 text-water-lighter hover:text-white">
+					Travel map
 				</a>
 			</div>
 			<div>
-				<a href="#donate" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue hover:bg-white mt-4 sm:mt-0">Donér</a>
+				<a href="#donate" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue hover:bg-white mt-4 sm:mt-0">Donate</a>
 			</div>
 		</div>
 	</nav>
 
-<div class=" h-screen scroll__child">
-		<img alt="row" src="img/boat.jpg"/><br/>
-	<!-- what -->
-	<div id="what" class="container lg:container p-6 mx-auto">
-		<h1 class="pb-6">The atlantic crossing</h1>
-		<p class="pb-4">
-		This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands). The crew members are:
-		</p>
-		<ul>
-		 	<li>Niklas Persson (Sweden)</li>
-			<li>James Morrisey (Ireland</li>
-			<li>Therese Lundgren (Sweden)</li>
-		  <li>Denis Gorbylev (Russia)</li>
-		  <li>Jacob Røthing (Norway)</li>
-		 </ul>
-		<p class="pb-2 pt-2">
-			The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
-		</p>
+
+<!-- blocks for small screens-->
+	<div class="lg:hidden xl:hidden sm:block md:hidden">
+		<img alt="row" src="img/frontpage.jpeg" class="frontpage__image"/>
+
+		<!-- what -->
+		<div  class="container lg:container p-4 mx-auto text-white">
+			<p class="pb-4">
+			This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands). The crew members are:
+			</p>
+			<ul>
+				<li>Niklas Persson (Sweden)</li>
+				<li>James Morrisey (Ireland</li>
+				<li>Therese Lundgren (Sweden)</li>
+				<li>Denis Gorbylev (Russia)</li>
+				<li>Jacob Røthing (Norway) (me)</li>
+			</ul>
+			<p class="pb-2 pt-2">
+				The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
+			</p>
+		</div>
+	</div>
+	<!-- blocks for big screens-->
+	<div class="hidden sm:hidden  lg:block xl:block md:block">
+		<div class="h-screen bg-water boat__background container lg:container p-6 mx-auto t text-white text-xl relative">
+
+			<p class="pt-8">
+			This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands). The crew members are:
+			</p>
+
+
+			<p class="pb-2 absolute pin-b">
+				The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
+			</p>
+		</div>
 
 	</div>
 </div>
