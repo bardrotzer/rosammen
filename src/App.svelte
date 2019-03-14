@@ -1,4 +1,3 @@
-<div id="what" class=" h-screen scroll__child bg-water-darkest ">
 <nav class="flex items-center justify-between flex-wrap bg-water-darkest p-6  scroll__child">
   <div class="flex items-center flex-no-shrink text-white mr-6">
     <span class="font-semibold text-xl tracking-tight">The Atlantic crossing</span>
@@ -27,6 +26,7 @@
 	</nav>
 
 
+<div id="what" class=" h-screen scroll__child bg-water-darkest ">
 <!-- blocks for small screens-->
 	<div class="lg:hidden xl:hidden sm:block md:hidden">
 		<img alt="row" src="img/frontpage.jpeg" class="frontpage__image"/>
@@ -50,14 +50,22 @@
 	</div>
 	<!-- blocks for big screens-->
 	<div class="hidden sm:hidden  lg:block xl:block md:block">
-		<div class="h-screen bg-water boat__background container lg:container p-6 mx-auto t text-white text-xl relative">
+		<div class="w-full h-full bg-water boat__background  p-6 mx-auto t text-white text-xl relative">
 
-			<p class="pt-8">
+			<p class="pt-8 pb-8">
 			This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands). The crew members are:
 			</p>
 
+				<ul>
+					<li>Niklas Persson (Sweden)</li>
+					<li>James Morrisey (Ireland</li>
+					<li>Therese Lundgren (Sweden)</li>
+					<li>Denis Gorbylev (Russia)</li>
+					<li>Jacob Røthing (Norway) (me)</li>
+				</ul>
 
-			<p class="pb-2 absolute pin-b">
+
+			<p class="pb-20 absolute pin-b">
 				The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
 			</p>
 		</div>
