@@ -2,8 +2,8 @@
 
 <script>
   import L from 'leaflet';
-  import Axios from 'axios';
-  import './css/custom.css'
+  import './css/custom.css';
+  import MapPoints from './MapPoints';
 
   let maps
 
@@ -42,12 +42,9 @@
         console.log(a,b,c);
       });
 
-      // Axios.get('https://ralph.travelmap.net/api/users/27165/trips/73428/spots')
-      //   .then(r => {
-      //     console.log(r);
-      //     console.log('done');
-      //   });
-
+      const mapPoints = new MapPoints(map);
+      mapPoints.show();
+      
 		}
 	}
 </script>
