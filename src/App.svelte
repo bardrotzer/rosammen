@@ -1,4 +1,4 @@
-<nav class="flex items-center justify-between flex-wrap bg-blue-darker p-6">
+<nav class="flex items-center justify-between flex-wrap bg-blue-darker p-6  scroll__child">
 		<div class="block sm:hidden">
 			<button ref:menubutton class="flex items-center px-3 py-2 border rounded text-blue-lighter border-blue-light hover:text-white hover:border-white" on:click="togglemenu()">
 				<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
@@ -22,7 +22,7 @@
 		</div>
 	</nav>
 
-<div>
+<div class=" h-screen scroll__child">
 		<img alt="row" src="img/boat.jpg"/><br/>
 	<!-- what -->
 	<div id="what" class="container lg:container p-6 mx-auto">
@@ -40,21 +40,19 @@
 		<p class="pb-2 pt-2">
 			The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
 		</p>
-		<p class="pb-2">
-			The ocean crossing will go from Portimão in Portugal to French Guyana, covering 3,300 nautical miles (6,000 kilometres). To cross the Atlantic Ocean the team can take advantage of tidal currents and trade winds.
-		</p>
 
 	</div>
+</div>
 	<!-- Who -->
-	<div id="who" class="container p-4 mx-auto lg:container">
+	<div id="who" class="container p-4 mx-auto lg:container h-screen scroll__child">
 		<Who/>
 	</div>
 	<!-- where -->
-	<div id="where">
+	<div id="where" class="h-screen scroll__child">
 			<Map/>
 	</div>
 	<!-- donate -->
-	<div id="donate"  class="container p-4 mx-auto lg:container">
+	<div id="donate"  class="container p-4 mx-auto lg:container h-screen scroll__child">
 	donations on separate page
 	</div>
 
@@ -62,12 +60,12 @@
 		using <a href="https://svelte.technology">Svelte</a> coded by <a href="https://kartoteket.as">Kartoteket AS</a>
 	</div>
 
-</div>
+
 
 <script>
 	import Map from './Map.svelte';
 	import Who from './Who.svelte';
-	import Donate from './Donate.svelte';
+	// import Donate from './Donate.svelte';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
@@ -75,7 +73,7 @@
 		components: {
 			Map,
 			Who,
-			Donate,
+			// Donate,
 		},
 		data() {
 			return {

@@ -2,3 +2,13 @@
   height: 500px;
   width: 100%
 }
+
+body {
+  scroll-snap-type: y mandatory;
+}
+
+.scroll__child {
+  scroll-snap-align: start;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
