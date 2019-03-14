@@ -22,7 +22,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
-    "build": "yarn tailwind && webpack --mode production",
+    "build": "yarn tailwind && yarn webpack --mode production",
     "dev": "yarn webpack-dev-server --mode development",
     "start": "sirv public",
     "start:dev": "sirv public --dev",
