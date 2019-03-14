@@ -45,10 +45,15 @@
 </div>
 	<!-- Who -->
 	<div id="who" class="container p-4 mx-auto lg:container h-screen scroll__child">
+	
 		<Who/>
 	</div>
 	<!-- where -->
 	<div id="where" class="h-screen scroll__child">
+		<div  class="container lg:container p-6 mx-auto">
+		<h1>Crossing the Atlantic</h1>
+			The ocean crossing will go from Portimão in Portugal to French Guyana, covering 3,300 nautical miles (6,000 kilometres). To cross the Atlantic Ocean the team can take advantage of tidal currents and trade winds.
+		</div>
 			<Map/>
 	</div>
 	<!-- donate -->
