@@ -6,15 +6,10 @@
   </div>
 </div>
 
-<div class="sm:block md:flex lg:flex xl:flex">
+<div class="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center bg-grey-lighter">
   {#each receivers as receiver}
     <Receiver data={receiver} on:selected="selectDonationReceiver(receiver.id)" />
   {/each}
-</div>
-<div class="flex items-stretch">
-    <div class="flex-1 text-grey-darker text-center px-4 py-2 m-2">
-      Those who donate will have your name, or the name of your company (please send the logo), on the boat and do the crossing with us!<br/> I suggest a donation of 5 øre per kilometre for private individuals (300 NOK), or 1 kroner per kilometre for companies (6000 NOK), but any donation is welcome.
-    </div>
 </div>
 {/if}
 {#if selectedReceiver}
@@ -34,7 +29,7 @@ export default {
       selectedReceiver: null,
       paymentsInitialized: false,
       receivers: [{
-        name: 'Røde Kors',
+        name: 'Røde Kors Norge',
         description: 'The Norwegian Red Cross mission is to reveal, prevent and alleviate human suffering and distress. The activities are grounded in local needs, resources and competencies, carried out by local volunteers.',
         logo: 'rode-kors-logo.png',
         link: 'https://www.rodekors.no/',
@@ -119,6 +114,9 @@ export default {
       // // });
     }
   },
+  oncreate() {
+    // this.selectDonationReceiver('rodekors');
+  }
 
 }
 </script>
