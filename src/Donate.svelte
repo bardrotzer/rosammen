@@ -30,13 +30,13 @@ export default {
       paymentsInitialized: false,
       receivers: [{
         name: 'Røde Kors Norge',
-        description: 'The Norwegian Red Cross mission is to reveal, prevent and alleviate human suffering and distress. The activities are grounded in local needs, resources and competencies, carried out by local volunteers.',
+        description: 'The Norwegian Red Cross mission is to reveal, prevent and alleviate human suffering and distress. Give healthcare to children in war: https://www.rodekors.no/  (Røde Kors VIPPS: 2272)',
         logo: 'rode-kors-logo.png',
         link: 'https://www.rodekors.no/',
         id: 'rodekors',
       },{
         name: 'Ormsund Roklubb',
-        description: 'Ormsund Roklubb is run by enthusiasts and contributes to an active and healthy Nedre Bekkelaget borough for young and old..',
+        description: 'Ormsund Roklubb is run by enthusiasts and contributes to an active and healthy Nedre Bekkelaget borough for young and old: http://ormsund.no/  (Ormsund Roklubb VIPPS: 13993).',
         logo: 'ormsund-roklubb-logo.png',
         link: 'http://ormsund.no/',
         id: 'ormsund',
@@ -60,58 +60,6 @@ export default {
       if (this.paymentsInitialized) {
         return;
       }
-
-      // var elementStyles = {
-      //   base: {
-      //     color: '#32325D',
-      //     fontWeight: 500,
-      //     fontFamily: 'Source Code Pro, Consolas, Menlo, monospace',
-      //     fontSize: '16px',
-      //     fontSmoothing: 'antialiased',
-
-      //     '::placeholder': {
-      //       color: '#CFD7DF',
-      //     },
-      //     ':-webkit-autofill': {
-      //       color: '#e39f48',
-      //     },
-      //   },
-      //   invalid: {
-      //     color: '#E25950',
-
-      //     '::placeholder': {
-      //       color: '#FFCCA5',
-      //     },
-      //   },
-      // };
-
-      // var elementClasses = {
-      //   focus: 'focused',
-      //   empty: 'empty',
-      //   invalid: 'invalid',
-      // };
-
-
-
-
-      // const stripe = Stripe('pk_test_8nPvazuUMzFU43Ae8foi5wbP');
-      // const elements = stripe.elements();
-
-      // const donate_to = elements.create('donate_to', {
-      //   style: elementStyles,
-      //   classes: elementClasses,
-      // });
-      // donate_to.mount('#donate_to');
-
-
-      // var card = elements.create('card');
-      // card.mount('#card-element');
-
-      // var promise = stripe.createToken(card);
-      // console.log(stripe, elements, promise);
-      // // promise.then(function(result) {
-      // //   // result.token is the card token.
-      // // });
     }
   },
   oncreate() {
