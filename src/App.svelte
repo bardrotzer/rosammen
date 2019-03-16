@@ -79,12 +79,15 @@
 		<Who/>
 	</div>
 	<!-- where -->
-	<div id="where" class="h-screen scroll__child">
-		<div  class="container lg:container p-6 mx-auto">
-		<h1>Crossing the Atlantic</h1>
-			The ocean crossing will go from Portimão in Portugal to French Guyana, covering 3,300 nautical miles (6,000 kilometres). To cross the Atlantic Ocean the team can take advantage of tidal currents and trade winds.
-		</div>
-			<Map/>
+	<div id="where" class="h-screen flex flex-col scroll__child">
+
+			<div ref:mapText class="container lg:container p-6 mx-auto flex-1">
+				<h1>Crossing the Atlantic</h1>
+					The ocean crossing will go from Portimão in Portugal to French Guyana, covering 3,300 nautical miles (6,000 kilometres). To cross the Atlantic Ocean the team can take advantage of tidal currents and trade winds.
+			</div>
+			<div ref:mapContainer class="flex-1">
+				<Map/>
+			</div>
 	</div>
 	<!-- donate -->
 	<div id="donate"  class="container p-4 mx-auto lg:container h-screen scroll__child">
@@ -123,6 +126,12 @@
 				console.log('toggle', isMenuOpen);
 				// console.log(this.refs.menubutton)
 			}
+		},
+		oncreate() {
+			const textHeight = this.refs.mapText.clientHeight;
+			const mapHeight = this.refs.mapContainer.clientHeight;
+			const newHeight = mapHeight - textHeight;
+			this.refs.mapContainer.style.height = newHeight + 'px';
 		}
 	};
 </script>
