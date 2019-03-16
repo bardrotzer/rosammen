@@ -3,6 +3,7 @@
   <div class="flex-1 text-grey-darker px-4 py-2 m-2">
     <h2>How to contribute</h2>
     <p>I pay for the entire trip myself and would like to contribute to locally to <a href="http://ormsund.no/" target="_blank">Ormsund Roklubb</a> and globally to the <a href="https://www.rodekors.no/">Red Cross</a>. Accompany me on the ocean crossing by making a donation!</p>
+    <p class="pt-2">Those who donate will have your name, or the name of your company (please send the logo), on the website and do the crossing with us! I suggest a donation of 5 øre per kilometre for private individuals, or 1 kroner per kilometre for companies, but any donation is welcome.</p>
   </div>
 </div>
 
