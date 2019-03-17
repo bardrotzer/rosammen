@@ -1,0 +1,318 @@
+.payments .success {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  text-align: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@media (min-width: 670px) {
+  .payments .success {
+    padding: 40px;
+  }
+}
+
+.payments .success > * {
+  transition-property: opacity, transform;
+  transition-duration: 0.35s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.payments .success .icon {
+  margin: 15px 0 30px;
+  transform: translateY(70px) scale(0.75);
+}
+
+.payments .success .icon svg {
+  will-change: transform;
+}
+
+.payments .success .icon .border {
+  stroke-dasharray: 251;
+  stroke-dashoffset: 62.75;
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: spin 1s linear infinite;
+}
+
+.payments .success .icon .checkmark {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) 0.35s;
+}
+
+.payments .success .title {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+
+.payments .success .reset:active {
+  transition-duration: 0.15s;
+  transition-delay: 0s;
+  opacity: 0.65;
+}
+
+.payments .success .reset svg {
+  will-change: transform;
+}
+
+
+
+.payments.submitted .success > * {
+  opacity: 1;
+  transform: none !important;
+}
+
+.payments.submitted .success > :nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.payments.submitted .success > :nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.payments.submitted .success > :nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.payments.submitted .success .icon .border,
+.payments.submitted .success .icon .checkmark {
+  opacity: 1;
+  stroke-dashoffset: 0 !important;
+}
+
+
+
+
+.payments.submitted form,
+.payments.submitting form {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+.payments.submitted .success,
+.payments.submitting .success {
+  pointer-events: all;
+}
+
+.payments.submitting .success .icon {
+  opacity: 1;
+}
+
+.payments {
+  background-color: #fff;
+}
+
+.payments * {
+  font-family: Source Code Pro, Consolas, Menlo, monospace;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.payments .row {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 5px 10px;
+}
+
+.payments .field {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 0 10px;
+}
+
+.payments .field.half-width {
+  width: 50%;
+}
+
+.payments .field.quarter-width {
+  width: calc(25% - 10px);
+}
+
+.payments .baseline {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: 0;
+  background-color: #cfd7df;
+  transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.payments label {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 8px;
+  color: #cfd7df;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transform-origin: 0 50%;
+  cursor: text;
+  transition-property: color, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.payments .input {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 7px;
+  color: #32325d;
+  background-color: transparent;
+}
+
+.payments .input::-webkit-input-placeholder {
+  color: transparent;
+  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.payments .input::-moz-placeholder {
+  color: transparent;
+  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.payments .input:-ms-input-placeholder {
+  color: transparent;
+  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.payments .input.StripeElement {
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: opacity;
+}
+
+.payments .input.focused,
+.payments .input:not(.empty) {
+  opacity: 1;
+}
+
+.payments .input.focused::-webkit-input-placeholder,
+.payments .input:not(.empty)::-webkit-input-placeholder {
+  color: #cfd7df;
+}
+
+.payments .input.focused::-moz-placeholder,
+.payments .input:not(.empty)::-moz-placeholder {
+  color: #cfd7df;
+}
+
+.payments .input.focused:-ms-input-placeholder,
+.payments .input:not(.empty):-ms-input-placeholder {
+  color: #cfd7df;
+}
+
+.payments .input.focused + label,
+.payments .input:not(.empty) + label {
+  color: #aab7c4;
+  transform: scale(0.85) translateY(-25px);
+  cursor: default;
+}
+
+.payments .input.focused + label {
+  color: #58668b;
+}
+
+.payments .input.invalid + label {
+  color: #ffa27b;
+}
+
+.payments .input.focused + label + .baseline {
+  background-color: #58668b;
+}
+
+.payments .input.focused.invalid + label + .baseline {
+  background-color: #e25950;
+}
+
+.payments input, .payments button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-style: none;
+}
+
+.payments input:-webkit-autofill {
+  -webkit-text-fill-color: #58668b;
+  transition: background-color 100000000s;
+  -webkit-animation: 1ms void-animation-out;
+}
+
+.payments .StripeElement--webkit-autofill {
+  background: transparent !important;
+}
+
+.payments input, .payments button {
+  -webkit-animation: 1ms void-animation-out;
+}
+
+.payments button {
+  display: block;
+  width: calc(100% - 30px);
+  height: 40px;
+  margin: 40px 15px 0;
+  background-color: #24b47e;
+  border-radius: 4px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payments input:active {
+  background-color: #159570;
+}
+
+.payments .error svg {
+  margin-top: 0 !important;
+}
+
+.payments .error svg .base {
+  fill: #e25950;
+}
+
+.payments .error svg .glyph {
+  fill: #fff;
+}
+
+
+.payments .success .icon .border {
+  stroke: #abe9d2;
+}
+
+.payments .success .icon .checkmark {
+  stroke: #24b47e;
+}
+
+.payments .success .title {
+  color: #32325d;
+  font-size: 16px !important;
+}
+
+
+.payments .success .reset path {
+  fill: #24b47e;
+}
