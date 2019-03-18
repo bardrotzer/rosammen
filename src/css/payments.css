@@ -28,7 +28,6 @@
   transition-property: opacity, transform;
   transition-duration: 0.35s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-  opacity: 0;
   transform: translateY(50px);
 }
 
@@ -41,7 +40,7 @@
   will-change: transform;
 }
 
-.payments .success .icon .border {
+.payments .success .icon .svg_border {
   stroke-dasharray: 251;
   stroke-dashoffset: 62.75;
   transform-origin: 50% 50%;
@@ -61,7 +60,6 @@
   margin-bottom: 8px;
 }
 
-
 .payments .success .reset:active {
   transition-duration: 0.15s;
   transition-delay: 0s;
@@ -71,13 +69,11 @@
 .payments .success .reset svg {
   will-change: transform;
 }
-
-
-
+/*
 .payments.submitted .success > * {
   opacity: 1;
   transform: none !important;
-}
+} */
 
 .payments.submitted .success > :nth-child(2) {
   transition-delay: 0.1s;
@@ -91,7 +87,7 @@
   transition-delay: 0.3s;
 }
 
-.payments.submitted .success .icon .border,
+.payments.submitted .success .icon .svg_border,
 .payments.submitted .success .icon .checkmark {
   opacity: 1;
   stroke-dashoffset: 0 !important;
@@ -118,12 +114,6 @@
 
 .payments {
   background-color: #fff;
-}
-
-.payments * {
-  font-family: Source Code Pro, Consolas, Menlo, monospace;
-  font-size: 16px;
-  font-weight: 500;
 }
 
 .payments .row {
@@ -181,6 +171,11 @@
   padding-bottom: 7px;
   color: #32325d;
   background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-style: none;
 }
 
 .payments .input::-webkit-input-placeholder {
@@ -247,13 +242,13 @@
   background-color: #e25950;
 }
 
-.payments input, .payments button {
+/* .payments input, .payments button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: none;
   border-style: none;
-}
+} */
 
 .payments input:-webkit-autofill {
   -webkit-text-fill-color: #58668b;
@@ -265,11 +260,11 @@
   background: transparent !important;
 }
 
-.payments input, .payments button {
+/* .payments input, .payments button {
   -webkit-animation: 1ms void-animation-out;
-}
+} */
 
-.payments button {
+/* .payments button {
   display: block;
   width: calc(100% - 30px);
   height: 40px;
@@ -280,10 +275,10 @@
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
-}
+} */
 
 .payments input:active {
-  background-color: #159570;
+  background-color: #bdeaee;
 }
 
 .payments .error svg {
@@ -298,8 +293,7 @@
   fill: #fff;
 }
 
-
-.payments .success .icon .border {
+.payments .success .icon .svg_border {
   stroke: #abe9d2;
 }
 
@@ -311,7 +305,6 @@
   color: #32325d;
   font-size: 16px !important;
 }
-
 
 .payments .success .reset path {
   fill: #24b47e;

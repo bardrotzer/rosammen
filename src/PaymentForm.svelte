@@ -1,11 +1,11 @@
-   <div class="cell payments" id="example-2" ref:paymentContainer>
+   <div class="payments" ref:paymentContainer>
    <div class="text-base p-3">
    You are about to donate <strong>{amount}</strong> to {donate_to  }.
-   {#if amount > 5900} 
+   {#if amount > 5900}
     please leave your email address to receive instructions on how to get your logo on our page.
    {/if}
    </div>
-        <form ref:paymentForm on:submit|preventDefault="submitForm()">
+        <form ref:paymentForm>
           <div data-locale-reversible="">
             <div class="row">
               <div class="field">
@@ -49,32 +49,40 @@
             <span class="text-sm p-1 text-red-light">{currentError}</span>
           </div>
         {/if}
-          <div class="flex pb-20">
+          <div class="flex p-5">
             <div class="flex-1 w-1/2 h-12 px-2">
               <button on:click="resetForm()" class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-grey text-grey hover:bg-grey hover:text-white">Back</button>
             </div>
             <div class="flex-1 w-1/2 h-12 px-2">
-              <button on:click="submitForm()" class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-green-base border border-black text-white hover:bg-green-lighter">Pay {amount} NOK</button>
+              <button on:click|preventDefault="submitForm(event)" class="text-sm font-semibold rounded-full px-4 py-1 leading-normal bg-green border border-white text-white hover:bg-green-lighter">Pay {amount} NOK</button>
             </div>
           </div>
 
         </form>
-        
+
         {#if state === 'success' || state === 'submitting'}
         <div class="success bg-white">
           <div class="icon">
             <svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
-              <circle class="border" cx="42" cy="42" r="40" stroke-linecap="round" stroke-width="4" stroke="#000" fill="none"/>
+              <circle class="svg_border" cx="42" cy="42" r="40" stroke-linecap="round" stroke-width="4" stroke="#000" fill="none"/>
               <path class="checkmark" stroke-linecap="round" stroke-linejoin="round" d="M23.375 42.5488281 36.8840688 56.0578969 64.891932 28.0500338" stroke-width="4" stroke="#000" fill="none"/>
             </svg>
           </div>
+          {#if state === 'submitting'}
+          <h3 class="text-green-darker">Processing payment</h3>
+          <p class="text-sm p-1 water">
+          Please wait for confirmation, it could take some time
+          </p>
+
+          {/if}
+          {#if state === 'success'}
           <h3 class="title">Payment successful</h3>
           <p class="text-sm p-1 water">
             Thank you for joining me on the trip and for donating to {donate_to}. Your receipt is available <a href="{receiptUrl}" target="_blank">here</a>.
           </p>
-          <p class="text-sm p-1 water">
+          <!-- <p class="text-sm p-1 water">
             You are now one of our growing list of <a href="#supporters">Supporters</a>.
-          </p>
+          </p> -->
             {#if email !== '' && amount > 5999}
             <p class="text-sm p-1 water">
               An email will arrive shortly to inform you on how to send us your logo.
@@ -85,6 +93,7 @@
               <path fill="#000000" d="M15,7.05492878 C10.5000495,7.55237307 7,11.3674463 7,16 C7,20.9705627 11.0294373,25 16,25 C20.9705627,25 25,20.9705627 25,16 C25,15.3627484 24.4834055,14.8461538 23.8461538,14.8461538 C23.2089022,14.8461538 22.6923077,15.3627484 22.6923077,16 C22.6923077,19.6960595 19.6960595,22.6923077 16,22.6923077 C12.3039405,22.6923077 9.30769231,19.6960595 9.30769231,16 C9.30769231,12.3039405 12.3039405,9.30769231 16,9.30769231 L16,12.0841673 C16,12.1800431 16.0275652,12.2738974 16.0794108,12.354546 C16.2287368,12.5868311 16.5380938,12.6540826 16.7703788,12.5047565 L22.3457501,8.92058924 L22.3457501,8.92058924 C22.4060014,8.88185624 22.4572275,8.83063012 22.4959605,8.7703788 C22.6452866,8.53809377 22.5780351,8.22873685 22.3457501,8.07941076 L22.3457501,8.07941076 L16.7703788,4.49524351 C16.6897301,4.44339794 16.5958758,4.41583275 16.5,4.41583275 C16.2238576,4.41583275 16,4.63969037 16,4.91583275 L16,7 L15,7 L15,7.05492878 Z M16,32 C7.163444,32 0,24.836556 0,16 C0,7.163444 7.163444,0 16,0 C24.836556,0 32,7.163444 32,16 C32,24.836556 24.836556,32 16,32 Z"/>
             </svg>
           </a>
+          {/if}
         </div>
         {/if}
       </div>
@@ -142,8 +151,8 @@
           // Resetting the form (instead of setting the value to `''` for each input)
           // helps us clear webkit autofill styles.
           form.reset();
-        
-        const { elements } = this.get(); 
+
+        const { elements } = this.get();
         // Clear each Element.
         elements.forEach(function(element) {
           element.clear();
@@ -208,7 +217,8 @@
         submit.remove();
       },
 
-      submitForm() {
+      submitForm(e) {
+        e.preventDefault()
         const form = this.refs.paymentForm;
         const container = this.refs.paymentContainer;
         const that = this;
@@ -228,11 +238,11 @@
           that.triggerBrowserValidation();
           return;
         }
-        
+
         this.set({
           state: 'submitting'
         })
-          
+
         // Show a loading screen...
         container.classList.add('submitting');
 
@@ -272,6 +282,7 @@
         } = this.get();
 
         const data = {
+          appId: 'rowtogether',
           token: token.id,
           amount: Number(amount) * 100,
           currency: 'NOK',
@@ -282,7 +293,7 @@
             donate_to: donate_to,
           }
         }
-
+        // Axios.post('http://localhost:3001/payments', data)
         Axios.post('https://payments.kartoteket.as/payments', data)
           .then(r => {
             if (r.data && r.data.status === 'succeeded') {
@@ -292,12 +303,21 @@
                 receiptUrl: r.data.receipt_url,
               });
             } else {
+              if (r.data && r.data.usermessage) {
               this.set({
+                  state: 'editing',
+                  errors: {
+                    '0': r.data.usermessage
+                  }
+                });
+              } else {
+                this.set({
                   state: 'editing',
                   errors: {
                     '0': 'Failed to verify your card, We  are sorry for this. Feel free to try again, your card has not been charged!'
                   }
                 });
+              }
             }
             console.log(r);
           })
@@ -328,7 +348,7 @@
       });
 
       // Floating labels
-      var inputs = document.querySelectorAll('.cell.payments .input');
+      var inputs = document.querySelectorAll('.payments .input');
       Array.prototype.forEach.call(inputs, function(input) {
         input.addEventListener('focus', function() {
           input.classList.add('focused');
