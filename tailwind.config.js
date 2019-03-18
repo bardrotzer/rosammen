@@ -128,11 +128,11 @@ let colors = {
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
 
-  'water-lightest': '#ebf4f6',
-  'water-lighter': '#bdeaee',
-  'water-light': '#76b4bd',
-  'water': '#58668b',
-  'water-darkest': '#5e5656',
+  'c-orange': '#FC6C0C',
+  'c-darkgrey': '#474044',
+  'c-lightgrey': '#576066',
+  'c-blue': '#084C61',
+  'c-black': '#001011',
 }
 
 module.exports = {

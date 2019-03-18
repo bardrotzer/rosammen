@@ -8,8 +8,8 @@ body {
 }
 
 .frontpage__image {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .scroll__child {
@@ -19,9 +19,10 @@ body {
 }
 
 .boat__background {
-  background-image: url('/img/frontpage.jpeg');
+  background-image: url('/img/frontpage.jpg');
   background-size: cover;
   background-position-x: center;
+  background-position-y: bottom;
 }
 
 .waypoint__icon {
