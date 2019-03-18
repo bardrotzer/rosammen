@@ -25,6 +25,13 @@ body {
   background-position-y: bottom;
 }
 
+.crew__background {
+  background-image: url('/img/frontpage.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: bottom;
+}
+
 .waypoint__icon {
   background-color: #ececec;
   border: 1px solid #666;

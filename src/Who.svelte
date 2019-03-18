@@ -1,4 +1,4 @@
-  <div class="hidden sm:hidden  lg:block xl:block md:block">
+  <div class="hidden sm:hidden lg:block xl:block md:block">
     <img alt="row" src="img/people.jpg" class="frontpage__image"/>
     <p class="leading-tight text-c-darkgrey py-2 text-sm">(from left) Niklas, Jakob, Ralph (Skipper) and James </p>
   </div>
