@@ -1,9 +1,9 @@
 
-
+<svelte:window on:resize="resizeMap()"/>
 
 <div id="what" class="font-sans  h-screen scroll__child boat__background static">
     <nav class="flex justify-between p-8 items-center ">
-      <a href="#" class="text-c-orange hidden no-underline text-sm md:text-4xl font-thin lg:block md:block">The atlantic crossing</a>
+      <p class="text-c-orange hidden text-sm md:text-4xl font-thin lg:block md:block">The atlantic crossing</p>
       <ul class="list-reset flex">
         <li><a href="#who" class="text-c-black no-underline p-2 md:p-4">About me</a></li>
         <li><a href="#what" class="text-c-black no-underline p-2 md:p-4 whitespace-no-wrap">The crossing</a></li>
@@ -81,7 +81,7 @@
 			</div>
 	</div>
 	<!-- donate -->
-	<div id="donate"  class="container p-4 mx-auto lg:container h-screen scroll__child">
+	<div id="donate"  class="min-h-screen bg-c-darkgrey">
 		<Donate/>
 	</div>
 
@@ -110,19 +110,16 @@
 			}
 		},
 		methods: {
-			togglemenu() {
-				const { isMenuOpen } = this.get();
-				console.log('toggle', isMenuOpen);
-				this.set({isMenuOpen: !isMenuOpen});
-				console.log('toggle', isMenuOpen);
-				// console.log(this.refs.menubutton)
-			}
+			resizeMap() {
+				this.refs.mapContainer.style = '';
+				const textHeight = this.refs.mapText.clientHeight;
+				const mapHeight = this.refs.mapContainer.clientHeight;
+				const newHeight = mapHeight - textHeight;
+				this.refs.mapContainer.style.height = newHeight + 'px';
+      }
 		},
 		oncreate() {
-			const textHeight = this.refs.mapText.clientHeight;
-			const mapHeight = this.refs.mapContainer.clientHeight;
-			const newHeight = mapHeight - textHeight;
-			this.refs.mapContainer.style.height = newHeight + 'px';
+			this.resizeMap();
 		}
 	};
 </script>

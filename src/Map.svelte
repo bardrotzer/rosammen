@@ -5,18 +5,18 @@
   import './css/custom.css';
   import MapPoints from './MapPoints';
 
-  let maps
+  let map;
 
 	export default {
     methods: {
       focusme() {
-        console.log(maps);
-        maps.scrollWheelZoom.enable();
+        console.log(map);
+        map.scrollWheelZoom.enable();
       },
       blurme() {
         console.log('blur');
-        maps.scrollWheelZoom.disable();
-        console.log(maps);
+        map.scrollWheelZoom.disable();
+        console.log(map);
       }
     },
 		oncreate() {
@@ -24,12 +24,11 @@
       const center = new L.latLng(20.2750, -27.7590);
       const oceantiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}';
       const watercolor = 'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}';
-			const map = L.map('map', {
+			map = L.map('map', {
         center,
 					zoom: 3
 			});
       map.scrollWheelZoom.disable();
-      maps = map;
       const tilemap = L.tileLayer(oceantiles, {
         // attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         subdomains: 'abcd',
@@ -44,7 +43,7 @@
 
       const mapPoints = new MapPoints(map);
       mapPoints.show();
-      
+
 		}
 	}
 </script>
