@@ -33,14 +33,14 @@ export default {
       receivers: [{
         name: 'Røde Kors Norge',
         description: 'The Norwegian Red Cross mission is to reveal, prevent and alleviate human suffering and distress. Give healthcare to children in war.',
-        vipps: ' (Røde Kors VIPPS: 2272)',
+        vipps: '2272',
         logo: 'rode-kors-logo.png',
         link: 'https://www.rodekors.no/',
         id: 'rodekors',
       },{
         name: 'Ormsund Roklubb',
         description: 'Ormsund Roklubb is run by enthusiasts and contributes to an active and healthy Nedre Bekkelaget borough for young and old.',
-        vipps: ' (Røde Kors VIPPS: 2272)',
+        vipps: '13993',
         logo: 'ormsund-roklubb-logo.png',
         link: 'http://ormsund.no/',
         id: 'ormsund',
