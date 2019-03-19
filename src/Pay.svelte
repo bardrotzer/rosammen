@@ -32,7 +32,7 @@
     </div>
     {:else}
     <div class="text-white text-sm md:text-base lg:text-base xl:text-base text-left py-6">
-    <p>Those who donate will have your name, or the name of your company (please send the logo), on the boat and do the crossing with us!</p>
+    <p>Those who donate will have your name, or the name of your company (please send the logo), on the website and do the crossing with us!</p>
     <p class="pt-2">I suggest a donation of 5 øre per kilometre for private individuals (<span class="no-underline text-c-orange" on:click="setAmount(300)">300</span> NOK), or 1 kroner per kilometre for companies (<span class="no-underline text-c-orange" on:click="setAmount(6000)">6000</span> NOK), but any donation is welcome.</p>
 
     </div>
