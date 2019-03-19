@@ -7,7 +7,7 @@
     <p class="pt-2 text-sm sm:text-sm md:text-xl lg:text-xl xl:text-2xl text-white font-sans font-thin">Those who donate will have your name, or the name of your company (please send the logo), on the website and do the crossing with us! I suggest a donation of 5 øre per kilometre for private individuals, or 1 kroner per kilometre for companies, but any donation is welcome.</p>
 </div>
 
-<div class="container mx-auto flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
+<div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
   {#each receivers as receiver}
     <Receiver data={receiver} on:selected="selectDonationReceiver(receiver.id)" />
   {/each}
