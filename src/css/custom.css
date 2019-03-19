@@ -4,7 +4,8 @@
 }
 
 body {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: both proximity;;
+  /* scroll-snap-type: y mandatory; */
 }
 
 .frontpage__image {
