@@ -6,8 +6,8 @@
       <p class="text-c-orange hidden text-sm md:text-4xl font-thin lg:block md:block">The atlantic crossing</p>
       <ul class="list-reset flex">
         <li><a href="#who" class="text-c-black no-underline p-2 md:p-4">About me</a></li>
-        <li><a href="#what" class="text-c-black no-underline p-2 md:p-4 whitespace-no-wrap">The crossing</a></li>
         <li><a href="#where" class="text-c-black no-underline p-2 md:p-4">Travel map</a></li>
+        <li><a href="#donate" class="text-c-orange no-underline p-2 md:p-4 whitespace-no-wrap">Donate</a></li>
         <!-- <li><a href="donate#" class="text-black md:text-white p-2 md:p-4">Donate</a></li> -->
       </ul>
     </nav>

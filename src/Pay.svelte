@@ -39,12 +39,9 @@
     {/if}
     {#if amount > 49}
     <div class="flex mb-4 text-center">
-<<<<<<< HEAD
       <div class="flex-1 px-2">
         <button on:click="setPaymentMethod('card')" class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-c-blue text-blue hover:bg-blue hover:text-white" >Pay using card</button>
       </div>
-=======
->>>>>>> b541c97af9d39ef9534dfd6d21431c8687e76791
       <div class="flex-1 px-2">
         <button on:click="setPaymentMethod('vipps')" class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-c-orange text-c-orange hover:bg-c-orange hover:text-white">Pay using VIPPS</button>
       </div>
