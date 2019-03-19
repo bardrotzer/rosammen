@@ -1,12 +1,13 @@
 {#if !selectedReceiver}
-<div class="flex items-stretch">
-  <div class="flex-1 text-grey-darker px-4 py-2 m-2">
-    <p class="text-sm">I pay for the entire trip myself and would like to contribute to locally to <a href="http://ormsund.no/" target="_blank">Ormsund Roklubb</a> and globally to the <a href="https://www.rodekors.no/">Red Cross</a>. Accompany me on the ocean crossing by making a donation!</p>
-    <p class="pt-2 text-sm">Those who donate will have your name, or the name of your company (please send the logo), on the website and do the crossing with us! I suggest a donation of 5 øre per kilometre for private individuals, or 1 kroner per kilometre for companies, but any donation is welcome.</p>
-  </div>
+<div class="px-4 pt-4 pb-4 xl:pb-10 container mx-auto lg:container ">
+    <div class="font-sans text-c-orange text-4xl font-thin py-2 text-right sm:text-right md:text-left lg:text-left xl:text-left">
+			Join me on the trip
+		</div>
+    <p class="py-2 text-sm sm:text-sm md:text-xl lg:text-xl xl:text-2xl text-white font-sans font-thin">I pay for the entire trip myself and would like to contribute to causes that are near to me. Accompany me on the ocean crossing by making a donation!</p>
+    <p class="pt-2 text-sm sm:text-sm md:text-xl lg:text-xl xl:text-2xl text-white font-sans font-thin">Those who donate will have your name, or the name of your company (please send the logo), on the website and do the crossing with us! I suggest a donation of 5 øre per kilometre for private individuals, or 1 kroner per kilometre for companies, but any donation is welcome.</p>
 </div>
 
-<div class="flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center bg-grey-lighter">
+<div class="container mx-auto flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
   {#each receivers as receiver}
     <Receiver data={receiver} on:selected="selectDonationReceiver(receiver.id)" />
   {/each}
