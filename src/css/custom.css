@@ -22,11 +22,13 @@ body {
   background-image: url('/img/frontpage.jpg');
   background-size: cover;
   background-position-x: center;
-  background-position-y: bottom;
+  background-position-y: center;
 }
 
 .crew__background {
-  background-image: url('/img/frontpage.jpg');
+  height: 50%;
+  width: 100%;
+  background-image: url('/img/people.jpg');
   background-size: cover;
   background-position-x: center;
   background-position-y: bottom;

@@ -3,11 +3,11 @@
 
 <div id="what" class="font-sans  h-screen scroll__child boat__background static">
     <nav class="flex justify-between p-8 items-center ">
-      <a href="#" class="text-c-orange xl:text-white hidden no-underline text-sm md:text-4xl font-thin lg:block md:block">The atlantic crossing</a>
+      <a href="#" class="text-c-orange hidden no-underline text-sm md:text-4xl font-thin lg:block md:block">The atlantic crossing</a>
       <ul class="list-reset flex">
-        <li><a href="#who" class="text-c-black xl:text-white p-2 md:p-4">About me</a></li>
-        <li><a href="#what" class="text-c-black xl:text-white p-2 md:p-4 whitespace-no-wrap">The crossing</a></li>
-        <li><a href="#where" class="text-c-black xl:text-white p-2 md:p-4">Travel map</a></li>
+        <li><a href="#who" class="text-c-black no-underline p-2 md:p-4">About me</a></li>
+        <li><a href="#what" class="text-c-black no-underline p-2 md:p-4 whitespace-no-wrap">The crossing</a></li>
+        <li><a href="#where" class="text-c-black no-underline p-2 md:p-4">Travel map</a></li>
         <!-- <li><a href="donate#" class="text-black md:text-white p-2 md:p-4">Donate</a></li> -->
       </ul>
     </nav>
@@ -41,7 +41,7 @@
 		<div class="w-full h-full bg-water  p-6 mx-auto t text-black text-xl relative">
 			<div  class="container lg:container p-4 mx-auto ">
 				<p class="pt-8 pb-8">
-				This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands). 
+				This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days. The six-person team will start the 1st of April 2019 under captain Ralph Tuijn (Netherlands).
 				</p> -->
 
  <!-- The crew members are:
@@ -52,7 +52,7 @@
 						<li>Denis Gorbylev (Russia)</li>
 						<li>Jacob Røthing (Norway) (me)</li>
 					</ul> -->
-<!-- 
+<!--
 
 				<p class=" container lg:container p-4 mx-auto pb-20 absolute pin-b">
 					The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
@@ -63,16 +63,18 @@
 	<!-- </div> -->
 </div>
 	<!-- Who -->
-	<div id="who" class="container p-4 mx-auto lg:container h-screen scroll__child">
-	
+	<div id="who" class="h-screen scroll__child">
+
 		<Who/>
 	</div>
 	<!-- where -->
-	<div id="where" class="h-screen flex flex-col scroll__child">
+	<div id="where" class="h-screen flex flex-col scroll__child bg-c-darkgrey">
 
 			<div ref:mapText class="container lg:container p-6 mx-auto flex-1">
-				<h1>Crossing the Atlantic</h1>
+				<h1 class="font-thin font-sans text-c-orange">Crossing the Atlantic</h1>
+				<p class="text-white p-2">
 					The ocean crossing will go from Portimão in Portugal to French Guyana, covering 3,300 nautical miles (6,000 kilometres). To cross the Atlantic Ocean the team can take advantage of tidal currents and trade winds.
+				</p>
 			</div>
 			<div ref:mapContainer class="flex-1">
 				<Map/>
