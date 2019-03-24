@@ -95,6 +95,7 @@
 	import Map from './Map.svelte';
 	import Who from './Who.svelte';
 	import Donate from './Donate.svelte';
+	import { getNation } from '@/utils/ipUtils';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
@@ -120,6 +121,10 @@
 		},
 		oncreate() {
 			this.resizeMap();
+			getNation()
+			.then((ip) => {
+				console.log(ip);
+			})
 		}
 	};
 </script>
