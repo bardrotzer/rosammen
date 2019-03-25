@@ -22,7 +22,6 @@ export default class Mappoints {
   }
 
   drawMarkers() {
-    console.log(this.data);
     const waypoint = L.divIcon({
       className: 'rounded-full waypoint__icon',
       iconSize: L.point(8, 8)});
@@ -31,7 +30,7 @@ export default class Mappoints {
       const markerLocation = new L.LatLng(d.lat, d.lon);
       const marker = new L.Marker(markerLocation, {icon: waypoint});
       this.map.addLayer(marker);
-  
+
       marker.bindPopup(d.comment || d.city, {
         maxWidth: 180,
       });
