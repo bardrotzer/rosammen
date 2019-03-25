@@ -1,7 +1,7 @@
 
 <svelte:window on:resize="resizeMap()"/>
 
-<div id="what" class="font-sans  h-screen scroll__child boat__background static">
+<div id="what" class="font-sans h-screen scroll__child boat__background static">
     <nav class="flex justify-between p-8 items-center ">
       <p class="text-c-orange hidden text-sm md:text-4xl font-thin lg:block md:block">The atlantic crossing</p>
       <ul class="list-reset flex">
@@ -82,7 +82,7 @@
 	</div>
 	<!-- donate -->
 	<div id="donate"  class="min-h-screen bg-c-darkgrey">
-		<Donate/>
+		<Donate vippsEnabled="{vippsEnabled}"/>
 	</div>
 
 	<div class="p-6">
@@ -108,6 +108,7 @@
 		data() {
 			return {
 				isMenuOpen: false,
+				vippsEnabled: false,
 			}
 		},
 		methods: {
@@ -123,7 +124,9 @@
 			this.resizeMap();
 			canUseVipps()
 				.then((r) => {
-					console.log('canusevipps ', r);
+					this.set({
+						vippsEnabled: r
+					});
 				})
 
 		}
