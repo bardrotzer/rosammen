@@ -1,4 +1,4 @@
-import { getNation } from '@/utils/ipUtils';
+import { getCountryCode } from '@/utils/ipUtils';
 
 const c = {
   currency: null,
@@ -9,7 +9,7 @@ const currency = (ip = null) => {
     if (c.currency) {
       resolve(c.currency);
     }
-    getNation(ip)
+    getCountryCode(ip)
       .then((country_code) => {
         if (country_code === 'NO') {
           c.currency = 'NOK';

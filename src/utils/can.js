@@ -1,4 +1,4 @@
-import { getNation } from '@/utils/ipUtils';
+import { getCountryCode } from '@/utils/ipUtils';
 
 const _canUse = {
 
@@ -19,7 +19,7 @@ const canUseVipps = () => {
       resolve(true);
     } else {
       // check the ip if we are in norway
-      getNation()
+      getCountryCode()
         .then((r) => {
           const isNorway = r === 'NO';
           _canUse.vipps = isNorway;

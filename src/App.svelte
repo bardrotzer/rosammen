@@ -97,6 +97,7 @@
 	import Donate from '@/components/Donate.svelte';
 	import { canUseVipps } from '@/utils/can';
 	import { currency } from '@/utils/currency';
+	import { getCountryCode } from '@/utils/ipUtils';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
@@ -111,6 +112,7 @@
 				isMenuOpen: false,
 				vippsEnabled: false,
 				currency: 'NOK',
+				country_code: null,
 			}
 		},
 		methods: {
@@ -124,6 +126,13 @@
 		},
 		oncreate() {
 			this.resizeMap();
+			getCountryCode('82.102.22.120')
+				.then((cc) => {
+					this.set({
+						country_code: cc,
+					});
+				})
+
 			canUseVipps()
 				.then((r) => {
 					let currency = 'EUR';

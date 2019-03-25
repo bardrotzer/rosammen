@@ -2,7 +2,7 @@ import Axios from 'axios';
 import config from '@/config';
 
 
-const ipStack = (ip) => {
+const _getCountryCode = (ip) => {
   const apiKey = config.get('ipStackKey');
   return Axios.get(`http://api.ipstack.com/${ip}?access_key=${apiKey}&fields=country_code`)
     .then((r) => {
@@ -33,19 +33,19 @@ const getIp = () => {
   })
 };
 
-const getNation = (ip = null) => {
+const getCountryCode = (ip = null) => {
   if (!ip) {
    return getIp()
       .then((resolvedIp) => {
-        return ipStack(resolvedIp);
+        return _getCountryCode(resolvedIp);
       })
   }
-  return ipStack(ip);
+  return _getCountryCode(ip);
 }
 
 
 
 export {
   getIp,
-  getNation,
+  getCountryCode,
 }
