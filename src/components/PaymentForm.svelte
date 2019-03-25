@@ -104,7 +104,7 @@
   import Axios from 'axios';
   import '@/css/payments.css';
 
-  const stripe = Stripe('pk_test_8nPvazuUMzFU43Ae8foi5wbP');
+  const stripe = Stripe(process.env.STRIPE_API_KEY);
 
   export default {
     data() {
