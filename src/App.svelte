@@ -94,7 +94,7 @@
 <script>
 	import Map from './Map.svelte';
 	import Who from './Who.svelte';
-	import Donate from './Donate.svelte';
+	import Donate from '@/components/Donate.svelte';
 	import { getNation } from '@/utils/ipUtils';
 	import './css/normalize.css'
 	import './css/tailwind.css'

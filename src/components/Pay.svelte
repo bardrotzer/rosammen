@@ -57,7 +57,7 @@
 </div>
 <script>
 import Axios from 'axios';
-import PaymentForm from '@/PaymentForm.svelte'
+import PaymentForm from '@/components/PaymentForm.svelte'
 
 export default {
   data() {

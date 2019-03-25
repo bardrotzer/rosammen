@@ -22,8 +22,8 @@
 
 
 <script>
-import Receiver from './Receiver.svelte';
-import Pay from './Pay.svelte';
+import Receiver from '@/components//Receiver.svelte';
+import Pay from '@/components/Pay.svelte';
 
 export default {
   data() {
