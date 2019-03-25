@@ -95,7 +95,7 @@
 	import Map from '@/components/Map.svelte';
 	import Who from '@/components/Who.svelte';
 	import Donate from '@/components/Donate.svelte';
-	import { getNation } from '@/utils/ipUtils';
+	import { canUseVipps } from '@/utils/can';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
@@ -121,10 +121,11 @@
 		},
 		oncreate() {
 			this.resizeMap();
-			getNation()
-			.then((ip) => {
-				console.log(ip);
-			})
+			canUseVipps()
+				.then((r) => {
+					console.log('canusevipps ', r);
+				})
+
 		}
 	};
 </script>

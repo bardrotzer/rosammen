@@ -4,9 +4,9 @@ import config from '@/config';
 
 const ipStack = (ip) => {
   const apiKey = config.get('ipStackKey');
-  Axios.get(`http://api.ipstack.com/${ip}7?access_key=${apiKey}`)
+  return Axios.get(`http://api.ipstack.com/${ip}?access_key=${apiKey}&fields=country_code`)
     .then((r) => {
-      console.log(r);
+      return r.data.country_code;
     })
 }
 // returns the clients ip address
@@ -17,7 +17,6 @@ const getIp = () => {
   return new Promise((r) => {
     const peerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
     const pc = new peerConnection({iceServers:[]})
-    // console.log(pc);
     // create a listener
     pc.onicecandidate = (c) => {
       try{
