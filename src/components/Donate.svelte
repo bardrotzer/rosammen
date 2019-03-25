@@ -8,9 +8,14 @@
 </div>
 
 <div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
-  {#each receivers as receiver}
-    <Receiver data={receiver} on:selected="selectDonationReceiver(receiver.id)" />
-  {/each}
+  {#if vippsEnabled || useVipps}
+    {#each receivers as receiver}
+      <Receiver data={receiver} on:selected="selectDonationReceiver(receiver.id)" />
+    {/each}
+  {/if}
+</div>
+<div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
+  <Receiver data={receiver_rowtogether} on:selected="selectDonationReceiver(receiver_rowtogether.id)" />
 </div>
 {/if}
 {#if selectedReceiver}
@@ -30,10 +35,12 @@ export default {
     return {
       selectedReceiver: null,
       paymentsInitialized: false,
+      useVipps: false,
       receivers: [{
         name: 'Røde Kors Norge',
         description: 'The Norwegian Red Cross mission is to reveal, prevent and alleviate human suffering and distress. Give healthcare to children in war.',
         vipps: '2272',
+        card: null,
         logo: 'rode-kors-logo.png',
         link: 'https://www.rodekors.no/',
         id: 'rodekors',
@@ -41,10 +48,20 @@ export default {
         name: 'Ormsund Roklubb',
         description: 'Ormsund Roklubb is run by enthusiasts and contributes to an active and healthy Nedre Bekkelaget borough for young and old.',
         vipps: '13993',
+        card: null,
         logo: 'ormsund-roklubb-logo.png',
         link: 'http://ormsund.no/',
         id: 'ormsund',
-      }]
+      }],
+      receiver_rowtogether: {
+        name: 'Rowtogether',
+        description: 'Donate directly to Rowtogether to receive daily updates on sms and your name on the website.',
+        vipps: null,
+        card: true,
+        logo: 'logo.png',
+        link: 'https://www.rowogether.no/',
+        id: 'rowtogether',
+      }
     }
   },
   components: {
