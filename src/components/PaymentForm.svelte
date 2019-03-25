@@ -5,22 +5,54 @@
     please leave your email address to receive instructions on how to get your logo on our page.
    {/if}
    </div>
-        <form ref:paymentForm>
-          <div data-locale-reversible="">
-            <div class="row">
-              <div class="field">
-                <input id="payments-name" class="input empty" type="text" placeholder="The name of the donor" required autocomplete="name" bind:value=name>
-                <label for="payments-name">Name</label>
-                <div class="baseline"></div>
-              </div>
+      <form ref:paymentForm>
+        <div data-locale-reversible="">
+          <div class="row">
+            <div class="field">
+              <input id="payments-name" class="input empty" type="text" placeholder="The name of the donor" required autocomplete="name" bind:value=name>
+              <label for="payments-name">Name</label>
+              <div class="baseline"></div>
             </div>
-            <div class="row">
-              <div class="field">
-                <input id="payments-email" class="input empty" type="email" placeholder="Your email" autocomplete="email" bind:value=email>
-                <label for="payments-email">Email<span class="text:xs">(optional)</span></label>
-                <div class="baseline"></div>
-              </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <input id="payments-email" class="input empty" type="email" placeholder="Your email" autocomplete="email" bind:value=email>
+              <label for="payments-email">Email<span class="text:xs">(optional)</span></label>
+              <div class="baseline"></div>
             </div>
+          </div>
+          <div class="row">
+            <div class="field">
+
+            <input list="browsers" name="areacode"  class="input empty" placeholder="Area code"/>
+            <datalist id="browsers">
+              <option value="+44 (UK)">
+              <option value="+47 (Norway)">
+              <option value="+33 (France)">
+              <option value="+34 (Spain)">
+              <option value="+43 (Swiss)">
+              <option value="+46 (Sweden)">
+            </datalist>
+<!-- <div class="relative group z-10">
+  <div class="flex items-center cursor-pointer text-sm text-blue border border-white border-b-0 border-grey-light rounded-t-lg py-1 px-2">
+    <img src="https://placekitten.com/30/30" class="rounded-full mr-2">
+    John Doe
+    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+  </div>
+  <div class="items-center absolute border border-t-0 rounded-b-lg p-1 bg-white p-2  w-full">
+   <a href="#" class="px-4 py-2 block text-black hover:bg-grey-lighter">View Profile</a>
+   <a href="#" class="px-4 py-2 block text-black hover:bg-grey-lighter">Edit Profile</a>
+   <hr class="border-t mx-2 border-grey-ligght">
+   <a href="#" class="px-4 py-2 block text-black hover:bg-grey-lighter">Logout</a>
+  </div>
+</div> -->
+            </div>
+            <div class="field">
+              <input id="payments-phone" class="input empty" type="phone" placeholder="Phone number" autocomplete="phone" bind:value=phone>
+              <label for="payments-phone">Phone<span class="text:xs">(optional)</span></label>
+              <div class="baseline"></div>
+            </div>
+          </div>
           <div class="row">
             <div class="field">
               <div id="payments-card-number" class="input empty"></div>
@@ -111,6 +143,7 @@
       return {
         name: '',
         email: '',
+        phone: '',
         elements: [],
         errors: {},
         state: 'editing',
