@@ -2,6 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 // const HtmlWebpackPlugin = require('style-loader');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -85,7 +86,8 @@ module.exports = {
     new CopyWebpackPlugin([
       {from:'src/img', to: 'img'},
       {from:'src/assets', to: 'assets'}
-  ]),
+    ]),
+    new Dotenv(),
   ]
 };
 
