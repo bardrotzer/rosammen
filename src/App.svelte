@@ -92,7 +92,7 @@
 
 
 <script>
-	import Map from './Map.svelte';
+	import Map from '@/components/Map.svelte';
 	import Who from './Who.svelte';
 	import Donate from '@/components/Donate.svelte';
 	import { getNation } from '@/utils/ipUtils';

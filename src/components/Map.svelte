@@ -2,8 +2,8 @@
 
 <script>
   import L from 'leaflet';
-  import './css/custom.css';
-  import MapPoints from './MapPoints';
+  import '@/css/custom.css';
+  import MapPoints from '@/classes/MapPoints';
 
   let map;
 
