@@ -82,7 +82,7 @@
 	</div>
 	<!-- donate -->
 	<div id="donate"  class="min-h-screen bg-c-darkgrey">
-		<Donate vippsEnabled="{vippsEnabled}"/>
+		<Donate vippsEnabled="{vippsEnabled}" currency="{currency}"/>
 	</div>
 
 	<div class="p-6">
@@ -96,6 +96,7 @@
 	import Who from '@/components/Who.svelte';
 	import Donate from '@/components/Donate.svelte';
 	import { canUseVipps } from '@/utils/can';
+	import { currency } from '@/utils/currency';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
@@ -109,6 +110,7 @@
 			return {
 				isMenuOpen: false,
 				vippsEnabled: false,
+				currency: 'NOK',
 			}
 		},
 		methods: {
@@ -124,10 +126,22 @@
 			this.resizeMap();
 			canUseVipps()
 				.then((r) => {
+					let currency = 'EUR';
+					if (r) {
+						currency = 'NOK';
+					}
 					this.set({
-						vippsEnabled: r
+						vippsEnabled: r,
+						currency: currency,
 					});
-				})
+				});
+
+			// currency()
+			// 	.then((c) => {
+			// 		this.set({
+			// 			currency: c,
+			// 		});
+			// 	});
 
 		}
 	};

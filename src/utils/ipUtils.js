@@ -9,6 +9,7 @@ const ipStack = (ip) => {
       return r.data.country_code;
     })
 }
+
 // returns the clients ip address
 // thanlks: https://stackoverflow.com/questions/391979/how-to-get-clients-ip-address-using-javascript
 const getIp = () => {
@@ -41,6 +42,8 @@ const getNation = (ip = null) => {
   }
   return ipStack(ip);
 }
+
+
 
 export {
   getIp,
