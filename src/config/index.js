@@ -1,5 +1,5 @@
 const conf = {
-  ipStackKey:  process.env.ipstackApiKey
+  ipStackKey:  process.env.IP_STACK_API_KEY,
 };
 
 const get = (key) => {
