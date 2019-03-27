@@ -82,7 +82,7 @@
 	</div>
 	<!-- donate -->
 	<div id="donate"  class="min-h-screen bg-c-darkgrey">
-		<Donate vippsEnabled="{vippsEnabled}" currency="{currency}"/>
+		<Donate vippsEnabled="{vippsEnabled}" currency="{currency}" country_code="{country_code}"/>
 	</div>
 
 	<div class="p-6">
@@ -95,9 +95,7 @@
 	import Map from '@/components/Map.svelte';
 	import Who from '@/components/Who.svelte';
 	import Donate from '@/components/Donate.svelte';
-	import { canUseVipps } from '@/utils/can';
-	import { currency } from '@/utils/currency';
-	import { getCountryCode } from '@/utils/ipUtils';
+	import { init } from '@/services/firstrun';
 	import './css/normalize.css'
 	import './css/tailwind.css'
 
@@ -126,31 +124,7 @@
 		},
 		oncreate() {
 			this.resizeMap();
-			getCountryCode('82.102.22.120')
-				.then((cc) => {
-					this.set({
-						country_code: cc,
-					});
-				})
-
-			canUseVipps()
-				.then((r) => {
-					let currency = 'EUR';
-					if (r) {
-						currency = 'NOK';
-					}
-					this.set({
-						vippsEnabled: r,
-						currency: currency,
-					});
-				});
-
-			// currency()
-			// 	.then((c) => {
-			// 		this.set({
-			// 			currency: c,
-			// 		});
-			// 	});
+			init();
 
 		}
 	};
