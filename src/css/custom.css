@@ -38,5 +38,8 @@ body {
 .waypoint__icon {
   background-color: #ececec;
   border: 1px solid #666;
+}
 
+.height-50 {
+  height: 50px;
 }
