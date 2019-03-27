@@ -127,9 +127,12 @@
   export default {
     data() {
       return {
-        name: "Bard Rotzer",
-        email: "bard@kartoteket.as",
-        phone: "40453445",
+        // name: "Bard Rotzer",
+        // email: "bard@kartoteket.as",
+        // phone: "40453445",
+        name: '',
+        email: '',
+        phone: '',
         prefix: "",
         elements: [],
         errors: {},
