@@ -133,7 +133,7 @@
         name: '',
         email: '',
         phone: '',
-        prefix: "",
+        prefix: '',
         elements: [],
         errors: {},
         state: "editing",
@@ -292,7 +292,7 @@
       completePayment(token) {
         const container = this.refs.paymentContainer;
 
-        const { amount, email, name, donate_to } = this.get();
+        const { amount, email, name, donate_to, phone, prefix } = this.get();
 
         const data = {
           appId: "rowtogether",
@@ -303,11 +303,13 @@
           metadata: {
             email: email,
             name: name,
-            donate_to: donate_to
+            donate_to: donate_to,
+            phone: phone,
+            prefix: prefix,
           }
         };
-        // Axios.post('http://localhost:3001/payments', data)
-        Axios.post("https://payments.kartoteket.as/payments", data)
+        Axios.post('http://localhost:3001/payments', data)
+        // Axios.post("https://payments.kartoteket.as/payments", data)
           .then(r => {
             if (r.data && r.data.status === "succeeded") {
               container.classList.add("submitted");
