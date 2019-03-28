@@ -39,6 +39,7 @@
       <p class="pt-2">I suggest a donation of {perKilometrePrivate} for private individuals (<span class="no-underline text-c-orange" on:click="setAmount('private')">{amountPrivate}</span> {currency}), or {perKilometreBusiness} for companies (<span class="no-underline text-c-orange" on:click="setAmount('business')">{amountBusiness}</span> {currency}), but any donation is welcome.</p>
 
     </div>
+
     {#if card}
       {#if amount >= minAmount}
       <div class="flex mb-4 text-center">
@@ -54,6 +55,9 @@
       </p>
       {/if}
     {/if}
+  </div>
+  <div class="flex-1 w-full h-12 py-4 text-center">
+    <button on:click="reset()" class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-grey text-grey hover:bg-grey hover:text-white">Back</button>
   </div>
 {/if}
   </div>
