@@ -21,7 +21,7 @@
     <Receiver data={receiver_rowtogether} on:selected="selectDonationReceiver(receiver_rowtogether.id)" />
   </div>
   {#if !vippsEnabled && !useVipps}
-  <div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
+  <div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10  items-center">
     <p class="py-2 text-center text-sm sm:text-sm md:text-xl lg:text-xl xl:text-2xl text-white font-sans  md:font-thin lg:font-thin xl:font-thin">
       prefer to pay with vipps?<br/>
       click <span class="text-c-orange" on:click="enableVipps()">here</span>.
