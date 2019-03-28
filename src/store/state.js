@@ -1,7 +1,7 @@
 import { Store } from 'svelte/store.js';
 import config from '@/config'
 
-const ac = config.get('area_codes'); 
+const ac = config.get('area_codes');
 
 const store = new Store({
   name: 'state',
@@ -23,7 +23,7 @@ store.compute('areacode', ['country_code'], (ccode) => {
   if (code) {
     return code.code;
   }
-  return 'nada';
+  return '';
 });
 
 export default store;
