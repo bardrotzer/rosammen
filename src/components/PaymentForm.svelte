@@ -1,5 +1,5 @@
 <div class="payments" ref:paymentContainer>
-	<div class="text-base p-3">
+	<div class="text-c-orange p-4 font-thin">
 		You are about to donate <strong>{amount}</strong> to {donate_to }.
 		{#if amount > 5900}
 		please leave your email address to receive instructions on how to get your logo on our page.
@@ -9,7 +9,7 @@
 		<div class="px-4  font-sans">
 			<div class="flex">
 				<div class="relative w-full height-50 border-b border-white">
-					<input id="payments-name" class="input empty" type="text" placeholder="The name of the card holder" required
+					<input id="payments-name" class="input empty" type="text" placeholder="Will be shown on the page as the donor" required
 					 autocomplete="cc-name" bind:value=name>
 					<label for="payments-name">Name</label>
 				</div>
@@ -32,26 +32,17 @@
 				</div>
 			</div>
 			<div class="flex">
-				<h3 class="text-c-orange p-5 font-thin">Add your phone or email to receive daily updates from the trip</h3>
+				<div class="text-c-orange py-5 font-thin">Add your phone or email to receive daily updates from the trip</div>
 			</div>
 			<div class="flex">
-				<div class="relative w-1/6 height-50">
-
-				</div>
-				<div class="relative w-5/6 height-50 border-b border-white">
-					<input id="payments-email" class="input empty" type="email" placeholder="Your email" autocomplete="email"
-					 bind:value=email>
-					<label for="payments-email">Email<span class="text:xs">(optional)</span></label>
+				<div class="relative w-full height-50 border-b border-white">
+					<input id="payments-email" class="input empty" type="email" autocomplete="email" bind:value=email>
+					<label for="payments-email">Email <span class="text:xs">(optional)</span></label>
 				</div>
 			</div>
 			<div class="flex">
-				<div class="relative w-1/6 height-50 border-b border-white">
-					<input id="payments-prefix" class="input" type="text" autocomplete="phone" bind:value=prefix>
-					<label for="payments-phone">Prefix</label>
-				</div>
-				<div class="relative w-5/6 height-50 border-b border-white">
-					<input id="payments-phone" class="input empty" type="phone" placeholder="Your phone number" autocomplete="tel"
-					 bind:value=phone>
+				<div class="relative w-full height-50 border-b border-white">
+					<input id="payments-phone" class="input empty" type="phone"  autocomplete="tel" bind:value=phone>
 					<label for="payments-phone">Phone <span class="text:xs">(optional)</span></label>
 				</div>
 			</div>
@@ -351,12 +342,16 @@
     },
 
     oncreate() {
+      const { areacode } = this.store.get();
+      this.set({
+        phone: areacode,
+      });
       this.store.on("state", ({ current, changed }) => {
         if (changed.hasOwnProperty("areacode")) {
-          const { prefix } = this.get();
-          if (prefix === "") {
+          const { phone } = this.get();
+          if (phone === "") {
             this.set({
-              prefix: current.areacode
+              phone: current.areacode
             });
           }
         }
@@ -402,7 +397,7 @@
           fontSmoothing: "antialiased",
 
           "::placeholder": {
-            color: "#FFF"
+            color: "#576066"
           },
           ":-webkit-autofill": {
             color: "#FFF"
