@@ -312,8 +312,13 @@
           }
         };
 
-        Axios.post('http://localhost:3001/payments', data)
-        // Axios.post("https://payments.kartoteket.as/payments", data)
+        const config = {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        };
+        // Axios.post('http://localhost:3001/payments', data)
+        Axios.post("https://payments.kartoteket.as/payments", data, config)
           .then(r => {
             console.log(r);
             const state = get(r, 'data.payment.status')
