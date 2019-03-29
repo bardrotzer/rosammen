@@ -68,7 +68,7 @@
 	</form>
 
 	{#if state === 'success' || state === 'submitting'}
-	<div class="success bg-white">
+	<div class="success bg-c-darkgrey">
 		<div class="icon">
 			<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
 				<circle class="svg_border" cx="42" cy="42" r="40" stroke-linecap="round" stroke-width="4" stroke="#000" fill="none" />
@@ -77,23 +77,27 @@
 			</svg>
 		</div>
 		{#if state === 'submitting'}
-		<h3 class="text-green-darker">Processing payment</h3>
-		<p class="text-sm p-1 water">
+		<h3 class="text-c-orange">Processing payment</h3>
+		<p class="text-sm p-1 text-c-orange">
 			Please wait for confirmation, it could take some time
 		</p>
 
 		{/if}
 		{#if state === 'success'}
-		<h3 class="title">Payment successful</h3>
-		<p class="text-sm p-1 water">
-			Thank you for joining me on the trip and for donating to {donate_to}. Your receipt is available <a href="{receiptUrl}"
-			 target="_blank">here</a>.
+		<h3 class="text-white">Payment successful</h3>
+		<p class="text-sm p-1">
+      <p class="p-2 text-white"> Payment: {paymentState.payment.status}</p>
+      <p class="p-2 text-white">SMS: {paymentState.sms.status}</p>
+      <p class="p-2 text-white">Email: {paymentState.email.status}</p>
+			
+      <p class="px-2 text-white py-4 ">Thank you for joining me on the trip and for donating to {donate_to}. <br>Your receipt is available <a href="{paymentState.payment.data.receipt}" class="text-c-orange" target="_blank">here</a>. <br/>
+
 		</p>
 		<!-- <p class="text-sm p-1 water">
             You are now one of our growing list of <a href="#supporters">Supporters</a>.
           </p> -->
-		{#if email !== '' && amount > 5999}
-		<p class="text-sm p-1 water">
+		{#if paymentState.email.status === 'success' && amount > 5999}
+		<p class="text-sm p-1 text--white">
 			An email will arrive shortly to inform you on how to send us your logo.
 		</p>
 		{/if}
@@ -112,6 +116,7 @@
 <script>
   import Axios from "axios";
   import "@/css/payments.css";
+  import { get } from 'lodash';
 
   const stripe = Stripe(process.env.STRIPE_API_KEY);
 
@@ -128,7 +133,13 @@
         elements: [],
         errors: {},
         state: "editing",
-        receiptUrl: null
+        receiptUrl: null,
+        paymentState: {
+          payment: null,
+          sms: null,
+          email: null,
+        }
+
       };
     },
     computed: {
@@ -280,6 +291,7 @@
           }
         });
       },
+
       completePayment(token) {
         const container = this.refs.paymentContainer;
 
@@ -299,34 +311,34 @@
             prefix: prefix,
           }
         };
+
         Axios.post('http://localhost:3001/payments', data)
         // Axios.post("https://payments.kartoteket.as/payments", data)
           .then(r => {
-            if (r.data && r.data.status === "succeeded") {
+            console.log(r);
+            const state = get(r, 'data.payment.status')
+            if (state === 'success') {
               container.classList.add("submitted");
               this.set({
-                state: "success",
-                receiptUrl: r.data.receipt_url
+                state: 'success',
+                paymentState: r.data,
               });
+            } else if (state === 'error' ) {
+                this.set({
+                  state: "editing",
+                  errors: {
+                    "0": r.data.payment.data
+                  }
+                });
             } else {
-              if (r.data && r.data.usermessage) {
-                this.set({
-                  state: "editing",
-                  errors: {
-                    "0": r.data.usermessage
-                  }
-                });
-              } else {
-                this.set({
-                  state: "editing",
-                  errors: {
-                    "0":
-                      "Failed to verify your card, We  are sorry for this. Feel free to try again, your card has not been charged!"
-                  }
-                });
-              }
-            }
-            console.log(r);
+              this.set({
+                state: "editing",
+                errors: {
+                  "0":
+                    "Failed to verify your card, We  are sorry for this. Feel free to try again, your card has not been charged!"
+                }
+              });
+            };
           })
           .catch(e => {
             console.log(e);
