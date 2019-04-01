@@ -18,7 +18,7 @@
 
 		<!-- what -->
 		<div  class="container lg:container p-4 mx-auto">
-		<div class="sm:block md:hidden lg:hidden xl:hidden  text-c-orange text-4xl font-thin text-center mb-10">
+		<div class="sm:block md:hidden lg:hidden xl:hidden  text-c-orange text-4xl font-thin text-center mb-8">
 			The Atlantic crossing
 		</div>
 			<p class="lg:absolute xl:absolute lg:pin-b xl:pin-b md:text-xl lg:text-xl xl:text-2xl lg:text-white xl:text-white lg:pb-20 xl:pb-24 pb-4">
