@@ -1,4 +1,4 @@
-<div id="windy" on:focus="focusme()" on:blur="blurme()"></div>
+<div id="windy" on:focus="focusme()" on:blur="blurme()" class="border border-c-orange rounded-lg"></div>
 
 <script>
   // import L from 'leaflet';
@@ -43,14 +43,15 @@
 
         const { map, store, picker, utils } = windyAPI
 
-        // picker.on('pickerOpened', latLon => {
-        //     // picker has been opened at latLon coords
-        //     const { lat, lon, values } = picker.getParams();
-        //     // console.log(p);
-        //     // -> 50.4, 14.3, 'wind', [ U,V, ]
-        //     let windObject = utils.wind2obj( values )
-        //     console.log( windObject )
-        // })
+        picker.on('pickerOpened', latLon => {
+          console.log('picker opened');
+            // picker has been opened at latLon coords
+            picker.close();
+            // console.log(p);
+            // -> 50.4, 14.3, 'wind', [ U,V, ]
+            // let windObject = utils.wind2obj( values )
+            // console.log( windObject )
+        })
 
         // const cp = picker.open({ lat: options.lat, lon: options.lon });
 
@@ -95,10 +96,10 @@
 	}
 </script>
 <style>
-	#map {
+	/* #map {
 		height: 500px;
 		width: 100%
-  }
+  } */
 
 
 </style>
