@@ -24,7 +24,7 @@
 
       const options = {
         // Required: API key
-        key: 'DYcYlzypFJaDiPqpZC7hZyquXioC1zOl',
+        key: process.env.WINDY_API_KEY,
         // Put additional console output
         verbose: false,
         // Optional: Initial state of the map
@@ -60,7 +60,7 @@
 
         L.popup()
             .setLatLng([options.lat, options.lon])
-            .setContent("Current Position")
+            .setContent("The team left Portugal today, 1st April")
             .openOn( map );
 
         const mapPoints = new MapPoints(map);
