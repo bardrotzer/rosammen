@@ -1,34 +1,38 @@
 import Axios from 'axios';
 // import L from 'leaflet';
 import '@/vendor/Leaflet.Geodesic';
+import moment from 'moment';
 
 export default class Mappoints {
   constructor (map) {
     console.log(L);
     this.map = map;
-    this.data = null;
+    this.path = null;
+    this.rowing = null;
     this.route = [];
   }
 
-  createFromTo() {
+  createFromTo(type) {
     const route = [];
-    for (let i = 0; i < this.data.length; i += 1) {
-      const d1 = this.data[i];
+    const data = type === 'path' ? this.path : this.rowing;
+    for (let i = 0; i < data.length; i += 1) {
+      const d1 = data[i];
       const from = L.latLng(d1.lat, d1.lon);
       route.push(from);
-      // const d2 = this.data[i + 1];
+      // const d2 = data[i + 1];
       // const to = L.latLng(d2.lat, d2.lon);
       // route.push([from, to])
     }
     return route;
   }
 
-  drawMarkers() {
+  drawMarkers(type) {
+    const data = type === 'path' ? this.path : this.rowing;
     const waypoint = L.divIcon({
       className: 'rounded-full waypoint__icon',
       iconSize: L.point(12, 12)});
-    for (let i = 0; i < this.data.length; i += 1) {
-      const d = this.data[i];
+    for (let i = 0; i < data.length; i += 1) {
+      const d = data[i];
       const markerLocation = L.latLng(d.lat, d.lon);
       const marker = new L.Marker(markerLocation, {icon: waypoint});
       this.map.addLayer(marker);
@@ -37,13 +41,25 @@ export default class Mappoints {
         maxWidth: 180,
       });
     }
+
+    if (type === 'rowing') {
+      const pos = data[data.length -1]; 
+      const date = new moment(pos.date)
+      // console.log(date.format('MMM Do - HH:mm'));
+      L.popup()
+      .setLatLng([pos.lat, pos.lon])
+      .setContent(pos.comment || date.format('MMM Do - HH:mm'), {
+        maxWidth: 180,
+      })
+      .openOn( this.map );
+    }
   }
 
-  drawCurve() {
-    const points = this.createFromTo();
+  drawCurve(type) {
+    const points = this.createFromTo(type);
     console.log(points);
     const lines = L.polyline(points, {
-      color: '#333',
+      color: type === 'path' ? '#333' : "blue",
       dashArray: 4,
       weight: 3,
     }).addTo(this.map);
@@ -59,12 +75,21 @@ export default class Mappoints {
   }
 
   show() {
-    Axios.get('assets/rowing.json')
+    Axios.get('assets/path.json')
         .then(r => {
           if (r.data && r.data.length)  {
-            this.data = r.data;
-            this.drawMarkers();
-            this.drawCurve()
+            this.path = r.data;
+            this.drawMarkers('path');
+            this.drawCurve('path')
+          }
+        });
+  
+        Axios.get('assets/rowing.json')
+        .then(r => {
+          if (r.data && r.data.length)  {
+            this.rowing = r.data;
+            this.drawMarkers('rowing');
+            this.drawCurve('rowing')
           }
         });
   }
