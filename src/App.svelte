@@ -118,8 +118,11 @@
 				this.refs.mapContainer.style = '';
 				const textHeight = this.refs.mapText.clientHeight;
 				const mapHeight = this.refs.mapContainer.clientHeight;
-				const newHeight = mapHeight - textHeight;
+				const mapWidth = this.refs.mapContainer.clientWidth;
+				const newHeight = mapHeight - textHeight - 20; // 2 * margin
+				const newWidth = (mapWidth - 20)
 				this.refs.mapContainer.style.height = newHeight + 'px';
+				this.refs.mapContainer.style.width = newWidth + 'px';
       }
 		},
 		oncreate() {

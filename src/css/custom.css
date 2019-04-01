@@ -1,6 +1,7 @@
-#map {
+#windy {
   height: 100%;
-  width: 100%
+  width: 100%;
+  margin: 10px;
 }
 
 body {
@@ -43,3 +44,9 @@ body {
 .height-50 {
   height: 50px;
 }
+
+#windy #progress-bar,
+#windy #bottom {
+  display: none !important;
+}
+/* #windy #embed-zoom  */
