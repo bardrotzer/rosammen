@@ -30,7 +30,7 @@
         // Optional: Initial state of the map
         lat: 37.11923,
         lon: -8.527708,
-        zoom: 5,
+        zoom: 11,
         hourFormat: '24h',
         englishLabels: true,
       }
@@ -58,10 +58,10 @@
         // console.log(cp);
         // .map is instance of Leaflet map
 
-        L.popup()
-            .setLatLng([options.lat, options.lon])
-            .setContent("The team left Portugal today, 1st April")
-            .openOn( map );
+        // L.popup()
+        //     .setLatLng([options.lat, options.lon])
+        //     .setContent("The team left Portugal today, 1st April")
+        //     .openOn( map );
 
         const mapPoints = new MapPoints(map);
         mapPoints.show();
