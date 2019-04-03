@@ -15,7 +15,7 @@
       </div>
       <div>
         <a href="https://facebook.com" target="_blank" class=" font-semibold no-underline rounded-full px-4 py-1 leading-normal bg-white border border-c-blue text-c-blue hover:bg-c-blue hover:text-white">Connect with Jacob</a>
-        <span class="text-c-lightgrey text-xs block py-2">opens facebook page</span>
+        <span class="text-c-lightgrey text-xs block py-2">opens facebook</span>
       </div>
     </div>
   </div>
