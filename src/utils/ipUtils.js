@@ -8,7 +8,7 @@ const cache = {
 
 const _getCountryCode = (ip) => {
   const apiKey = config.get('ipStackKey');
-  return Axios.get(`http://api.ipstack.com/${ip}?access_key=${apiKey}&fields=country_code`)
+  return Axios.get(`https://api.ipstack.com/${ip}?access_key=${apiKey}&fields=country_code`)
     .then((r) => {
       cache.country_code = r.data.country_code;
       return cache.country_code ;
