@@ -28,8 +28,8 @@
         // Put additional console output
         verbose: false,
         // Optional: Initial state of the map
-        lat: 36.57826,
-        lon: -8.89249,
+        lat: 37.11923,
+        lon: -8.527708,
         zoom: 8,
         hourFormat: '24h',
         englishLabels: true,

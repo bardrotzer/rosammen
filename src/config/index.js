@@ -1,5 +1,6 @@
 const conf = {
   ipStackKey:  process.env.IP_STACK_API_KEY,
+  baseUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://rosammen.no',
   area_codes: {
     NO: {
       code: '+47',

@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import clientUrl from '@/utils/clientUrl';
 // import L from 'leaflet';
 import '@/vendor/Leaflet.Geodesic';
 import moment from 'moment';
@@ -57,7 +58,7 @@ export default class Mappoints {
 
   drawCurve(type) {
     const points = this.createFromTo(type);
-    console.log(points);
+
     const lines = L.polyline(points, {
       color: type === 'path' ? '#333' : "blue",
       dashArray: 4,
@@ -69,25 +70,28 @@ export default class Mappoints {
     //   color: '#666',
     //   steps: 10,
     // }).addTo(this.map);
-
-    // const b = geodesi.getBounds();
-    // this.map.fitBounds(b);
+    // if (type === 'rowing') {
+    //   this.map.fitBounds(lines.getBounds());
+    // }
   }
 
   show() {
-    Axios.get('assets/path.json')
+    const path = clientUrl('assets','path.json');
+    const rowing = clientUrl('assets','rowing.json');
+
+    Axios.get(path)
         .then(r => {
-          if (r.data && r.data.length)  {
-            this.path = r.data;
+          if (r.data && r.data.data && r.data.data.length)  {
+            this.path = r.data.data;
             this.drawMarkers('path');
             this.drawCurve('path')
           }
         });
   
-        Axios.get('assets/rowing.json')
+        Axios.get(rowing)
         .then(r => {
-          if (r.data && r.data.length)  {
-            this.rowing = r.data;
+          if (r.data && r.data.data && r.data.data.length)  {
+            this.rowing = r.data.data;
             this.drawMarkers('rowing');
             this.drawCurve('rowing')
           }
