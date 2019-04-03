@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import clientUrl from '@/utils/clientUrl';
 // import L from 'leaflet';
 import '@/vendor/Leaflet.Geodesic';
 import moment from 'moment';
@@ -75,19 +76,22 @@ export default class Mappoints {
   }
 
   show() {
-    Axios.get('assets/path.json')
+    const path = clientUrl('assets','path.json');
+    const rowing = clientUrl('assets','rowing.json');
+
+    Axios.get(path)
         .then(r => {
-          if (r.data && r.data.length)  {
-            this.path = r.data;
+          if (r.data && r.data.data && r.data.data.length)  {
+            this.path = r.data.data;
             this.drawMarkers('path');
             this.drawCurve('path')
           }
         });
   
-        Axios.get('assets/rowing.json')
+        Axios.get(rowing)
         .then(r => {
-          if (r.data && r.data.length)  {
-            this.rowing = r.data;
+          if (r.data && r.data.data && r.data.data.length)  {
+            this.rowing = r.data.data;
             this.drawMarkers('rowing');
             this.drawCurve('rowing')
           }
