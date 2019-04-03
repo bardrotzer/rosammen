@@ -1,6 +1,4 @@
-import config from '@/config';
-
-const baseUrl = config.get('baseUrl');
+const baseUrl = process.env.BASE_URL;
 const urls = {
   // returns an asset
   assets: name => `${baseUrl}/assets/${name}`,
