@@ -58,7 +58,7 @@ export default class Mappoints {
 
   drawCurve(type) {
     const points = this.createFromTo(type);
-    console.log(points);
+
     const lines = L.polyline(points, {
       color: type === 'path' ? '#333' : "blue",
       dashArray: 4,
@@ -70,9 +70,9 @@ export default class Mappoints {
     //   color: '#666',
     //   steps: 10,
     // }).addTo(this.map);
-
-    // const b = geodesi.getBounds();
-    // this.map.fitBounds(b);
+    // if (type === 'rowing') {
+    //   this.map.fitBounds(lines.getBounds());
+    // }
   }
 
   show() {
