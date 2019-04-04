@@ -72,7 +72,7 @@ export default class Mappoints {
     // }).addTo(this.map);
     if (type === 'rowing') {
       this.map.fitBounds(lines.getBounds(), {
-        padding: L.point(20,20),
+        padding: L.point(10,10),
       });
     }
   }
