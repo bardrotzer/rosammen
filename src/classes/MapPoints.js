@@ -70,9 +70,11 @@ export default class Mappoints {
     //   color: '#666',
     //   steps: 10,
     // }).addTo(this.map);
-    // if (type === 'rowing') {
-    //   this.map.fitBounds(lines.getBounds());
-    // }
+    if (type === 'rowing') {
+      this.map.fitBounds(lines.getBounds(), {
+        padding: L.point(20,20),
+      });
+    }
   }
 
   show() {
