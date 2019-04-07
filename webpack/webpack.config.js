@@ -23,7 +23,7 @@ module.exports = {
    * Serve files from the ./dist folder
    */
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, '../dist'),
     compress: true,
     port: 8080
   },
