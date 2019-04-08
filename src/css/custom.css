@@ -4,6 +4,12 @@
   margin: 10px;
 }
 
+.newsImage {
+  object-fit: cover;
+  width:100px;
+  height:100px;
+}
+
 body {
   /* scroll-snap-type: both proximity;; */
   /* scroll-snap-type: y mandatory; */
