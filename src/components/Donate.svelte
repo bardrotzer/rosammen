@@ -71,7 +71,7 @@ export default {
         vipps: null,
         card: true,
         logo: 'logo.png',
-        link: 'https://www.rowogether.no/',
+        link: 'https://www.rowtogether.no/',
         id: 'rowtogether',
       }
     }
