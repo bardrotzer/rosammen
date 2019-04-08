@@ -11,13 +11,10 @@
 	export default {
     methods: {
       focusme() {
-        console.log(_map);
         _map.scrollWheelZoom.enable();
       },
       blurme() {
-        console.log('blur');
         _map.scrollWheelZoom.disable();
-        console.log(_map);
       }
     },
 		oncreate() {
