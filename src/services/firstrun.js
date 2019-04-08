@@ -7,7 +7,6 @@ import { currency } from '@/utils/currency';
 import { getCountryCode } from '@/utils/ipUtils';
 import Axios from 'axios';
 import clientUrl from '@/utils/clientUrl';
-import { parse as parseNews } from '@/services/news';
 
 
 /**
@@ -22,9 +21,6 @@ const init = () => {
       store.set({
         rowingData: r.data.data
       });
-      // this.rowing = r.data.data;
-      // this.drawMarkers('rowing');
-      // this.drawCurve('rowing')
     }
   });
 }, 2000)
