@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import clientUrl from '@/utils/clientUrl';
+import store from '@/store/state';
 // import L from 'leaflet';
 import '@/vendor/Leaflet.Geodesic';
 import moment from 'moment';
@@ -44,7 +45,7 @@ export default class Mappoints {
     }
 
     if (type === 'rowing') {
-      const pos = data[data.length -1]; 
+      const pos = data[data.length -1];
       const date = new moment(pos.date)
       // console.log(date.format('MMM Do - HH:mm'));
       L.popup()
@@ -77,6 +78,10 @@ export default class Mappoints {
     }
   }
 
+  getRowData() {
+
+  }
+
   show() {
     const path = clientUrl('assets','path.json');
     const rowing = clientUrl('assets','rowing.json');
@@ -89,14 +94,28 @@ export default class Mappoints {
             this.drawCurve('path')
           }
         });
-  
-        Axios.get(rowing)
-        .then(r => {
-          if (r.data && r.data.data && r.data.data.length)  {
-            this.rowing = r.data.data;
-            this.drawMarkers('rowing');
-            this.drawCurve('rowing')
-          }
-        });
+    const { rowingData } = store.get();
+    if (!rowingData ) {
+      store.on('state', ({ current, changed, previous }) => {
+        if (current.rowingData && current.rowingData.length) {
+          this.rowing = current.rowingData;
+          this.drawMarkers('rowing');
+          this.drawCurve('rowing')
+
+        }
+      });
+    } else {
+      this.rowing = rowingData;
+      this.drawMarkers('rowing');
+      this.drawCurve('rowing')
+    }
+        // Axios.get(rowing)
+        // .then(r => {
+        //   if (r.data && r.data.data && r.data.data.length)  {
+        //     this.rowing = r.data.data;
+        //     this.drawMarkers('rowing');
+        //     this.drawCurve('rowing')
+        //   }
+        // });
   }
 }
