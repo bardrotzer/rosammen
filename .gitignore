@@ -3,5 +3,10 @@ node_modules
 public/
 dist
 .env
+<<<<<<< HEAD
 src/assets
 src/photos
+=======
+src/photos
+src/assets
+>>>>>>> a32e48b64b7b00a471ee51f373abbd0dc6e3ecff

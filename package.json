@@ -25,7 +25,11 @@
   "scripts": {
     "build": "yarn tailwind && yarn webpack --mode production --config ./webpack/webpack.config.js",
     "testbuild": "yarn webpack --mode production --config ./webpack/webpack.config.js --display-error-details",
+<<<<<<< HEAD
     "dev": "yarn webpack-dev-server --mode development  --config ./webpack/webpack.config.js",
+=======
+    "dev": "yarn webpack-dev-server --mode development --config ./webpack/webpack.config.js",
+>>>>>>> a32e48b64b7b00a471ee51f373abbd0dc6e3ecff
     "start": "sirv public",
     "start:dev": "sirv public --dev",
     "tailwind": "yarn tailwind:normalize && yarn tailwind:css",

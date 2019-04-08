@@ -1,8 +1,0 @@
-{"timestamp":"2019-04-03T08:25:19+04:00","data":[
-  {"id":1979317,"id_transport":3,"city":"Portimão","id_country":"PT","lon":-8.52746,"lat":37.12177,"comment":"Start, 1st April Portugal, Distance from start: 0 km Distance to finish: 5 977","is_free":true,"is_future":true},
-  {"id":1951380,"id_transport":3,"id_spot":1979317,"city":"Waypoint 1","lon":-12.21,"lat":32.67,"comment":"Completed: <strong>10%</strong> Distance from start: 598 km Distance to finish: 5 378 km","is_free":true,"is_future":true},
-  {"id":1951384,"id_transport":3,"id_spot":1951380,"city":"Canary Islands","id_country":"ES","lon":-15.8834,"lat":28.2171,"comment":"Completed: <strong>20%</strong> Distance from start: 1 205 km Distance to finish: 4 772 km","is_free":true,"is_future":true},
-  {"id":1951387,"id_transport":3,"id_spot":1951384,"city":"Cape Verde","lon":-26,"lat":18,"comment":"Completed: <strong>45%</strong> Distance from start: 2 738 km Distance to finish: 3 239 km","is_free":true,"is_future":true},
-  {"id":1951389,"id_transport":3,"id_spot":1951387,"city":"Waypoint 2","lon":-38,"lat":11.5,"comment":"Completed: <strong>70%</strong> Distance from start: 4 216 km Distance to finish: 1 761 km","is_free":true,"is_future":true},
-  {"id":1951391,"id_transport":3,"id_spot":1951389,"city":"Waypoint 3","lon":-50,"lat":5,"comment":"Completed: <strong>95%</strong> Distance from start: 5 720 km Distance to finish: 257 km","is_free":true,"is_future":true},
-  {"id":1951371,"id_transport":3,"id_spot":1951391,"city":"Cayenne","id_country":"GF","lon":-52.335,"lat":4.93854,"comment":"Completed: <strong>100%</strong> Distance from start: 5 977 km Distance to finish: 0 km","id_icon":1,"is_free":true,"is_future":true}]}
