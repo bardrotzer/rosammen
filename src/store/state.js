@@ -8,6 +8,7 @@ const store = new Store({
   country_code: null,
   currency: 'NOK',
   vippsEnabled: false,
+  rowingData: null,
 
 });
 
