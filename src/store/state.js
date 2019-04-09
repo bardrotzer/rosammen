@@ -9,15 +9,13 @@ const store = new Store({
   currency: 'NOK',
   vippsEnabled: false,
   rowingData: null,
+  winWidth: 600,
 
 });
 
-// store.compute('currency', ['country_code'], (ccode) => {
-//   if (ccode === 'NO') {
-//     return 'NOK';
-//   }
-//   return 'EUR';
-// });
+store.compute('smallscreen', ['winWidth'], (ww) => {
+  return (ww < 769);
+});
 
 store.compute('areacode', ['country_code'], (ccode) => {
   const code = ac[ccode];

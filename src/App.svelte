@@ -1,9 +1,14 @@
 
 <svelte:window on:resize="resizeMap()"/>
 
-<div id="what" class="font-sans h-screen scroll__child boat__background static">
+<div id="what" class="font-sans h-screen scroll__child  boat__background static">
 	<What/>
 </div>
+{#if $smallscreen}
+<div id="news" class="font-sans h-screen scroll__child">
+	<News/>
+</div>
+{/if}
 	<!-- Who -->
 	<div id="who" class="h-screen scroll__child">
 
@@ -38,6 +43,7 @@
 	import Who from '@/components/Who.svelte';
 	import Donate from '@/components/Donate.svelte';
 	import What from '@/components/What.svelte';
+	import News from '@/components/News.svelte';
 	import { init } from '@/services/firstrun';
 	import './css/normalize.css'
 	import './css/tailwind.css'
@@ -48,6 +54,7 @@
 			Who,
 			Donate,
 			What,
+			News,
 		},
 		data() {
 			return {
@@ -62,11 +69,15 @@
 				this.refs.mapContainer.style = '';
 				const textHeight = this.refs.mapText.clientHeight;
 				const mapHeight = this.refs.mapContainer.clientHeight;
-				const mapWidth = this.refs.mapContainer.clientWidth;
+				const winWidth = this.refs.mapContainer.clientWidth;
 				const newHeight = mapHeight - textHeight - 20; // 2 * margin
-				const newWidth = (mapWidth - 20)
+				const newWidth = (winWidth - 20)
 				this.refs.mapContainer.style.height = newHeight + 'px';
 				this.refs.mapContainer.style.width = newWidth + 'px';
+
+				this.store.set({
+					winWidth: winWidth,
+				})
       }
 		},
 		oncreate() {
