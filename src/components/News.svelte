@@ -1,10 +1,10 @@
-  <h1 class="font-thin font-sans text-c-orange p-4">Latest Updates</h1>
-<div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row items-center">
+  <h1 class="font-thin font-sans text-c-orange p-4 block lg:hidden xl:hidden">Latest Updates</h1>
+<div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-col lg:flex-row items-center lg:float-right xl:float-right">
     {#each storeData as newsItem}
       <NewsItem news={newsItem} />
     {/each}
 </div>
-<div class=" text-center">
+<div class=" text-center block lg:hidden xl:hidden">
   <a href="#where" class="text-c-orange text-bold no-underline">Tollow the team on the map</a>
 </div>
 <script>

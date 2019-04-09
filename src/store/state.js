@@ -14,7 +14,7 @@ const store = new Store({
 });
 
 store.compute('smallscreen', ['winWidth'], (ww) => {
-  return (ww < 769);
+  return (ww < 992);
 });
 
 store.compute('areacode', ['country_code'], (ccode) => {
