@@ -15,8 +15,8 @@ module.exports = {
     index: './src/main.js',
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name]-[hash].bundle.js',
+    path: path.resolve(__dirname, '../dist')
   },
   /**
    * Configure the webpack dev server to run on port 8080
