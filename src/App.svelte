@@ -1,19 +1,22 @@
 
 <svelte:window on:resize="resizeMap()"/>
-
-<div id="what" class="font-sans h-screen scroll__child  boat__background static">
-	<What/>
-</div>
+  <nav class="flex justify-between p-8 items-center bg-c-black ">
+      <p class="text-c-orange hidden text-sm md:text-4xl font-thin lg:block md:block">The atlantic crossing</p>
+      <ul class="list-reset flex">
+        <li><RouterLink className="text-c-lightgrey no-underline p-2 md:p-4" to="/">Home</RouterLink></li>
+        <!-- <li><RouterLink className="text-c-lightgrey no-underline p-2 md:p-4" to="/who">About me</RouterLink></li> -->
+        <li><RouterLink className="text-c-lightgrey no-underline p-2 md:p-4" to="/where">Travel map</RouterLink></li>
+        <li><RouterLink className="text-c-lightgrey no-underline p-2 md:p-4" to="/log">Updates</RouterLink></li>
+        <li><RouterLink className="text-c-orange no-underline p-2 md:p-4 whitespace-no-wrap" to="/donate">Donate</RouterLink></li>
+        <!-- <li><a href="donate#" class="text-black md:text-white p-2 md:p-4">Donate</a></li> -->
+      </ul>
+    </nav>
+<div id="app"></div>
 {#if $smallscreen}
 <div id="news" class="font-sans h-screen scroll__child">
 	<News/>
 </div>
 {/if}
-	<!-- Who -->
-	<div id="who" class="h-screen scroll__child">
-
-		<Who/>
-	</div>
 	<!-- where -->
 	<div id="where" class="h-screen flex flex-col scroll__child bg-c-darkgrey">
 
@@ -39,8 +42,9 @@
 
 
 <script>
+	import router from '@/router';
+	import SvelteRouter from 'svelte-router';
 	import Map from '@/components/Map.svelte';
-	import Who from '@/components/Who.svelte';
 	import Donate from '@/components/Donate.svelte';
 	import What from '@/components/What.svelte';
 	import News from '@/components/News.svelte';
@@ -51,10 +55,11 @@
 	export default {
 		components: {
 			Map,
-			Who,
+			// Who,
 			Donate,
 			What,
 			News,
+			RouterLink: SvelteRouter.RouterLink,
 		},
 		data() {
 			return {
@@ -81,6 +86,7 @@
       }
 		},
 		oncreate() {
+			router.create('#app');
 			this.resizeMap();
 			init();
 

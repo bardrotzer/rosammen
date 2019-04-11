@@ -1,3 +1,5 @@
+  
+<div class="h-screen scroll__child">
   <div class="hidden sm:hidden lg:block xl:block md:hidden crew__background">
     <div class="leading-tight font-sans text-c-orange p-10 text-sm float-left">(from left) Niklas, Jakob, Ralph (Skipper) and James. Missing from the photo are Tessa and James</div>
 
@@ -19,6 +21,7 @@
       </div>
     </div>
   </div>
+</div>
   <script>
 
   </script>

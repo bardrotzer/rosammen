@@ -1,17 +1,9 @@
-  <nav class="flex justify-between p-8 items-center ">
-      <p class="text-c-orange hidden text-sm md:text-4xl font-thin lg:block md:block">The atlantic crossing</p>
-      <ul class="list-reset flex">
-        <li><a href="#who" class="text-c-black no-underline p-2 md:p-4">About me</a></li>
-        <li><a href="#where" class="text-c-black no-underline p-2 md:p-4">Travel map</a></li>
-        <li><a href="#donate" class="text-c-orange no-underline p-2 md:p-4 whitespace-no-wrap">Donate</a></li>
-        <!-- <li><a href="donate#" class="text-black md:text-white p-2 md:p-4">Donate</a></li> -->
-      </ul>
-    </nav>
+ <div id="what" class="font-sans h-full scroll__child  boat__background static">
 	
-	{#if !$smallscreen}
+	<!-- {#if !$smallscreen}
 
-  <News/>
-	{/if}
+  <!-- <News/> -->
+	<!-- {/if} --> -->
 <!-- blocks for small screens-->
 	<!-- <div class="lg:hidden xl:hidden sm:block md:hidden"> -->
 		<!-- <img alt="row" src="img/frontpage.jpg" class="frontpage__image"/> -->
@@ -35,9 +27,10 @@
 				The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
 			</p>
 		</div>
-		{#if $smallscreen}
+		<!-- {#if $smallscreen}
 		<a href="#news" class="absolute pin-b arrow bounce"> </a>
-		{/if}
+		{/if} -->
+	</div>
   <script>
   import News from '@/components/News.svelte';
 
