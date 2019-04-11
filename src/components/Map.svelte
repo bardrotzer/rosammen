@@ -1,14 +1,8 @@
 	<svelte:window on:resize="resizeMap()"/>
   <!-- where -->
-	<div id="where" class="h-screen flex flex-col scroll__child bg-c-darkgrey">
-
-			<div ref:mapText class="container lg:container p-6 mx-auto flex-1">
-				<p class="text-white p-2">
-					The ocean crossing will go from Portimão in Portugal to French Guyana, covering 3,300 nautical miles (6,000 kilometres). To cross the Atlantic Ocean the team can take advantage of tidal currents and trade winds.
-				</p>
-			</div>
-			<div ref:mapContainer class="flex-1">
-        <div id="windy" on:focus="focusme()" on:blur="blurme()" class="border border-c-orange rounded-lg"></div>
+	<div id="where">
+			<div ref:mapContainer>
+        <div id="windy" on:focus="focusme()" on:blur="blurme()" style="margin: 0;"></div>
 			</div>
 	</div>
 <script>
@@ -29,17 +23,17 @@
       },
       resizeMap() {
 				this.refs.mapContainer.style = '';
-				const textHeight = this.refs.mapText.clientHeight;
+				// const textHeight = this.refs.mapText.clientHeight;
 				const mapHeight = this.refs.mapContainer.clientHeight;
-				const winWidth = this.refs.mapContainer.clientWidth;
-				const newHeight = mapHeight - textHeight - 20; // 2 * margin
-				const newWidth = (winWidth - 20)
-				this.refs.mapContainer.style.height = newHeight + 'px';
-				this.refs.mapContainer.style.width = newWidth + 'px';
+				// const winWidth = this.refs.mapContainer.clientWidth;
+				// const newHeight = mapHeight - textHeight - 20; // 2 * margin
+				// const newWidth = (winWidth - 20)
+				this.refs.mapContainer.style.height = (mapHeight - 105) + 'px';
+				// this.refs.mapContainer.style.width = newWidth + 'px';
       }
     },
 		oncreate() {
-
+      console.log(this);
       this.resizeMap();
       const options = {
         // Required: API key
