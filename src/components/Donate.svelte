@@ -1,3 +1,4 @@
+<div id="donate"  class="min-h-screen bg-c-darkgrey">
 {#if !selectedReceiver}
   <div class="px-4 pt-4 pb-4 xl:pb-10 container mx-auto lg:container ">
       <div class="font-sans text-c-orange text-4xl font-thin py-2 text-right sm:text-right md:text-left lg:text-left xl:text-left">
@@ -36,6 +37,9 @@
     on:reset="reset(event)"/>
 {/if}
 
+	<!-- donate -->
+
+</div>
 
 <script>
 import Receiver from '@/components//Receiver.svelte';
