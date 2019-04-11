@@ -1,5 +1,16 @@
-<div id="windy" on:focus="focusme()" on:blur="blurme()" class="border border-c-orange rounded-lg"></div>
+	<!-- where -->
+	<div id="where" class="h-screen flex flex-col scroll__child bg-c-darkgrey">
 
+			<div ref:mapText class="container lg:container p-6 mx-auto flex-1">
+				<h1 class="font-thin font-sans text-c-orange">Crossing the Atlantic</h1>
+				<p class="text-white p-2">
+					The ocean crossing will go from Portimão in Portugal to French Guyana, covering 3,300 nautical miles (6,000 kilometres). To cross the Atlantic Ocean the team can take advantage of tidal currents and trade winds.
+				</p>
+			</div>
+			<div ref:mapContainer class="flex-1">
+        <div id="windy" on:focus="focusme()" on:blur="blurme()" class="border border-c-orange rounded-lg"></div>
+			</div>
+	</div>
 <script>
   // import L from 'leaflet';
   import '@/css/custom.css';
