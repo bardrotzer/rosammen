@@ -130,7 +130,7 @@ let colors = {
 
   'c-orange': '#FC6C0C',
   'c-darkgrey': '#474044',
-  'c-lightgrey': '#576066',
+  'c-lightgrey': '#e9e9e9',
   'c-blue': '#084C61',
   'c-black': '#001011',
 }
