@@ -29,10 +29,24 @@ export default class Mappoints {
   }
 
   drawMarkers(type) {
-    const data = type === 'path' ? this.path : this.rowing;
-    const waypoint = L.divIcon({
-      className: 'rounded-full waypoint__icon',
-      iconSize: L.point(12, 12)});
+    let data, options
+
+    if (type === 'path') {
+      data = this.path;
+      options = {
+        iconSize: L.point(12, 12),
+        className: 'rounded-full waypoint__icon',
+      }
+    } else {
+      data = this.rowing;
+      options = {
+        iconSize: L.point(10, 10),
+        className: 'rounded-full rowing__icon',
+      }
+    }
+
+    const waypoint = L.divIcon(options);
+
     for (let i = 0; i < data.length; i += 1) {
       const d = data[i];
       const markerLocation = L.latLng(d.lat, d.lon);
@@ -59,22 +73,34 @@ export default class Mappoints {
 
   drawCurve(type) {
     const points = this.createFromTo(type);
+    let options;
+    if (type === 'path') {
+      options = {
+        color: '#333',
+        dashArray: 4,
+        weight: 3,
+      }
+    } else {
+      options = {
+        color: 'blue',
+        weight: 3,
+      }
+    }
 
-    const lines = L.polyline(points, {
-      color: type === 'path' ? '#333' : "blue",
-      dashArray: 4,
-      weight: 3,
-    }).addTo(this.map);
-    // const geodesi = L.geodesic(points, {
-    //   weight: 1,
-    //   opacity: 1,
-    //   color: '#666',
-    //   steps: 10,
-    // }).addTo(this.map);
+
+    const lines = L.polyline(points, options).addTo(this.map);
+
     if (type === 'rowing') {
       this.map.fitBounds(lines.getBounds(), {
         padding: L.point(10,10),
+        reset: true,
       });
+      // this.map.invalidateSize({
+      //   debounceMoveend: true,
+      // });
+      this.map.on('moveend', (b) => {
+        console.log('ended');
+      })
     }
   }
 

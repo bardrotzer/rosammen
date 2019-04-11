@@ -47,6 +47,11 @@ body {
   border: 1px solid #666;
 }
 
+.rowing__icon {
+  background-color: blue;
+  border: 1px solid #084C61;
+}
+
 .height-50 {
   height: 50px;
 }
