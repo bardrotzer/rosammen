@@ -10,7 +10,7 @@ const router = new SvelteRouter({
   routes: {
     '/log': TravelLog,
     '/': What,
-    '/who': Who,
+    // '/who': Who,
     '/donate': Donate,
     '/map': Map,
   }
