@@ -2,7 +2,7 @@
 {#if photo}
 <div class=" block p-3 m-3 border border-c-lightgray border-rounded" style="width: 400px; height: 130px">
   <div class="float-left w-1/4">
-  <img class="block newsImage rounded-full border-2 border-c-orange mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"  src="photos/sm/{ photo }">
+  <img class="block newsImage rounded-full border-2 border-c-orange mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" alt="{photo}"  src="photos/sm/{ photo }">
   </div>
   <div class="float-left w-3/4 px-2">
   <p class="pb-2 text-bold">{date}</p>
