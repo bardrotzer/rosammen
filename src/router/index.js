@@ -1,9 +1,10 @@
 import SvelteRouter from 'svelte-router';
 import TravelLog from '@/components/TravelLog.svelte';
 import What from '@/components/What.svelte';
-import Who from '@/components/Who.svelte';
+import Pay from '@/components/Pay.svelte';
 import Donate from '@/components/Donate.svelte';
 import Map from '@/components/Map.svelte';
+import store from '@/store/state';
 
 const router = new SvelteRouter({
   mode: 'hash',
@@ -11,8 +12,19 @@ const router = new SvelteRouter({
     '/log': TravelLog,
     '/': What,
     // '/who': Who,
-    '/donate': Donate,
+    '/donate': {
+      Component: Donate,
+      props: {
+        store,
+      }
+    },
     '/map': Map,
+    '/payment/:id': {
+      Component: Pay,
+      props: {
+        store,
+      }
+    },
   }
 })
 
