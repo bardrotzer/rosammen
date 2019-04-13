@@ -1,4 +1,4 @@
-<div class="container mx-auto text-xl p-4">
+<div class="w-full bg-white"><div class="container mx-auto text-xl p-4">
 The travel log is my personal day-by-day (ish) recordings of life at sea. This is not world class prose, but the ramblings of a sea sick sea farer.
 </div>
 <div class="max-w-sm mx-auto pt-4 px-2">
@@ -10,6 +10,8 @@ The travel log is my personal day-by-day (ish) recordings of life at sea. This i
     </div>
   {/each}
 </div>
+</div>
+
 <script>
 import Axios from 'axios';
 import moment from 'moment';
