@@ -107,6 +107,7 @@
   import '@/css/spinner.css';
   import PaymentState from '@/components/PaymentState.svelte';
   import SvelteRouter from 'svelte-router';
+  import clientUrl from '@/utils/clientUrl';
   import { get } from 'lodash';
 
   const stripe = Stripe(process.env.STRIPE_API_KEY);
@@ -310,8 +311,8 @@
             "Content-Type": "application/json"
           }
         };
-        return Axios.post('http://localhost:3001/payments', data, config)
-        // Axios.post("https://payments.kartoteket.as/payments", data, config)
+
+        Axios.post(clientUrl('payments'), data, config)
           .then(r => {
             console.log(r);
             const state = get(r, 'data.payment.status')

@@ -1,7 +1,10 @@
 const baseUrl = process.env.BASE_URL;
+const paymentsUrl = process.env.PAYMENTS_BASE_URL;
+
 const urls = {
   // returns an asset
   assets: name => `${baseUrl}/assets/${name}`,
+  payments: () => process.env.PAYMENTS_BASE_URL,
 }
 
 /**
