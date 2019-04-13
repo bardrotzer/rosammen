@@ -5,13 +5,13 @@
       <a class="text-c-orange pt-6 pb-2 xl:pb-6 block md:text-xl lg:text-2xl xl:text-4xl" target="_blank" href="{link}">{name}</a>
         <p class="text-white text-sm pb-4 xl:pb-8 md:text-base lg:text-lg xl:text-xl">{description}</p>
         <div class="w-full px-6 py-3 md:py-6 xl:py-6 text-center">
-          <button on:click="selectDonationReceiver(id)" class="text-xs xl:text-lg lg:text-base font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-c-orange text-c-orange hover:bg-c-orange hover:text-white">
-            {#if vipps}
+        <RouterLink to="/payment/{id}" className="no-underline text-xs xl:text-lg lg:text-base font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-c-orange text-c-orange hover:bg-c-orange hover:text-white">
+          {#if vipps}
             Make a donation using vipps
             {:else}
             Make a donation
             {/if}
-          </button>
+        </RouterLink>
         </div>
     </div>
   </div>
@@ -23,7 +23,11 @@
 
 
 <script>
+import SvelteRouter from 'svelte-router';
 export default {
+  components: {
+    RouterLink: SvelteRouter.RouterLink,
+  },
   computed: {
     name: ({data}) => data.name || 'name',
     description: ({data}) => data.description || 'a description',

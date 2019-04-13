@@ -1,3 +1,7 @@
+/* .payments .success {
+  position: absolute;
+} */
+/*
 .payments .success {
   display: -ms-flexbox;
   display: flex;
@@ -15,15 +19,15 @@
   padding: 10px;
   text-align: center;
   pointer-events: none;
-  overflow: hidden;
+   overflow: hidden;
 }
-
-@media (min-width: 670px) {
+*/
+/* @media (min-width: 670px) {
   .payments .success {
     padding: 40px;
   }
-}
-
+} */
+/*
 .payments .success > * {
   transition-property: opacity, transform;
   transition-duration: 0.35s;
@@ -68,12 +72,12 @@
 
 .payments .success .reset svg {
   will-change: transform;
-}
+}*/
 /*
 .payments.submitted .success > * {
   opacity: 1;
   transform: none !important;
-} */
+}
 
 .payments.submitted .success > :nth-child(2) {
   transition-delay: 0.1s;
@@ -111,7 +115,7 @@
 .payments.submitting .success .icon {
   opacity: 1;
 }
-
+*/
 /* .payments {
   background-color: #fff;
 } */
@@ -121,10 +125,10 @@
   display: flex;
   margin: 0 5px 10px;
 } */
-/* 
+/*
 .payments .field {
   /* position: relative;
-  width: 100%; 
+  width: 100%;
   margin: 0 10px;
   height: 50px;
 }
@@ -132,7 +136,7 @@
 
 /* .payments .field.half-width {
   width: 50%;
-} 
+}
 
 .payments .field.quarter-width {
   width: calc(25% - 10px);
@@ -197,7 +201,7 @@
   /* transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   will-change: opacity;
 */
-} 
+}
 .payments .input.focused,
 .payments .input:not(.empty) {
   opacity: 1;
@@ -218,11 +222,11 @@
   color: #cfd7df;
 }
 */
-/* 
+/*
 
 .payments .input.focused + label {
   color: #58668b;
-} 
+}
 */
 .payments .input.focused + label,
 .payments .input:not(.empty) + label {
@@ -276,7 +280,7 @@
   font-weight: 600;
   cursor: pointer;
 } */
-/* 
+/*
 .payments input:active {
   background-color: #bdeaee;
 } */

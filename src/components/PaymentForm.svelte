@@ -1,3 +1,33 @@
+<div class="payments" ref:feedbackContainer>
+
+	{#if state === 'success' || state === 'submitting'}
+	<div class="success bg-c-darkgrey absolute pin-t w-full">
+
+		{#if state === 'submitting'}
+    <div class=" text-center py-24">
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+      <h3 class="text-c-orange">Processing payment</h3>
+      <p class="text-sm p-1 text-c-orange">
+        Please wait for the payment to complete, this could take some time.
+      </p>
+    </div>
+		{/if}
+		{#if state === 'success'}
+    <PaymentState to="{donate_to}" data={paymentState} state=state/>
+		<!-- <p class="text-sm p-1 water">
+            You are now one of our growing list of <a href="#supporters">Supporters</a>.
+          </p> -->
+    <div class="text-center p-6">
+      <RouterLink className="reset" to="/donate">
+        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+          <path fill="#000000" d="M15,7.05492878 C10.5000495,7.55237307 7,11.3674463 7,16 C7,20.9705627 11.0294373,25 16,25 C20.9705627,25 25,20.9705627 25,16 C25,15.3627484 24.4834055,14.8461538 23.8461538,14.8461538 C23.2089022,14.8461538 22.6923077,15.3627484 22.6923077,16 C22.6923077,19.6960595 19.6960595,22.6923077 16,22.6923077 C12.3039405,22.6923077 9.30769231,19.6960595 9.30769231,16 C9.30769231,12.3039405 12.3039405,9.30769231 16,9.30769231 L16,12.0841673 C16,12.1800431 16.0275652,12.2738974 16.0794108,12.354546 C16.2287368,12.5868311 16.5380938,12.6540826 16.7703788,12.5047565 L22.3457501,8.92058924 L22.3457501,8.92058924 C22.4060014,8.88185624 22.4572275,8.83063012 22.4959605,8.7703788 C22.6452866,8.53809377 22.5780351,8.22873685 22.3457501,8.07941076 L22.3457501,8.07941076 L16.7703788,4.49524351 C16.6897301,4.44339794 16.5958758,4.41583275 16.5,4.41583275 C16.2238576,4.41583275 16,4.63969037 16,4.91583275 L16,7 L15,7 L15,7.05492878 Z M16,32 C7.163444,32 0,24.836556 0,16 C0,7.163444 7.163444,0 16,0 C24.836556,0 32,7.163444 32,16 C32,24.836556 24.836556,32 16,32 Z" />
+        </svg>
+      </RouterLink>
+    </div>
+		{/if}
+	</div>
+  {/if}
+
 <div class="payments" ref:paymentContainer>
 	<div class="text-c-orange p-4 font-thin">
 		You are about to donate <strong>{amount}</strong> to {donate_to }.
@@ -5,6 +35,7 @@
 		please leave your email address to receive instructions on how to get your logo on our page.
 		{/if}
 	</div>
+
 	<form ref:paymentForm>
 		<div class="px-4  font-sans">
 			<div class="flex">
@@ -64,51 +95,8 @@
           Pay {amount} {$currency}</button>
 				</div>
 			</div>
-
-	</form>
-
-	{#if state === 'success' || state === 'submitting'}
-	<div class="success bg-c-darkgrey">
-		<div class="icon">
-			<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
-				<circle class="svg_border" cx="42" cy="42" r="40" stroke-linecap="round" stroke-width="4" stroke="#000" fill="none" />
-				<path class="checkmark" stroke-linecap="round" stroke-linejoin="round" d="M23.375 42.5488281 36.8840688 56.0578969 64.891932 28.0500338"
-				 stroke-width="4" stroke="#000" fill="none" />
-			</svg>
-		</div>
-		{#if state === 'submitting'}
-		<h3 class="text-c-orange">Processing payment</h3>
-		<p class="text-sm p-1 text-c-orange">
-			Please wait for confirmation, it could take some time
-		</p>
-
-		{/if}
-		{#if state === 'success'}
-		<h3 class="text-white">Payment successful</h3>
-		<p class="text-sm p-1">
-      <p class="p-2 text-white"> Payment: {paymentState.payment.status}</p>
-      <p class="p-2 text-white">SMS: {paymentState.sms.status}</p>
-      <p class="p-2 text-white">Email: {paymentState.email.status}</p>
-			
-      <p class="px-2 text-white py-4 ">Thank you for joining me on the trip and for donating to {donate_to}. <br>Your receipt is available <a href="{paymentState.payment.data.receipt}" class="text-c-orange" target="_blank">here</a>. <br/>
-
-		</p>
-		<!-- <p class="text-sm p-1 water">
-            You are now one of our growing list of <a href="#supporters">Supporters</a>.
-          </p> -->
-		{#if paymentState.email.status === 'success' && amount > 5999}
-		<p class="text-sm p-1 text--white">
-			An email will arrive shortly to inform you on how to send us your logo.
-		</p>
-		{/if}
-		<a class="reset" on:click|preventDefault="resetForm(event)" href>
-			<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
-				<path fill="#000000" d="M15,7.05492878 C10.5000495,7.55237307 7,11.3674463 7,16 C7,20.9705627 11.0294373,25 16,25 C20.9705627,25 25,20.9705627 25,16 C25,15.3627484 24.4834055,14.8461538 23.8461538,14.8461538 C23.2089022,14.8461538 22.6923077,15.3627484 22.6923077,16 C22.6923077,19.6960595 19.6960595,22.6923077 16,22.6923077 C12.3039405,22.6923077 9.30769231,19.6960595 9.30769231,16 C9.30769231,12.3039405 12.3039405,9.30769231 16,9.30769231 L16,12.0841673 C16,12.1800431 16.0275652,12.2738974 16.0794108,12.354546 C16.2287368,12.5868311 16.5380938,12.6540826 16.7703788,12.5047565 L22.3457501,8.92058924 L22.3457501,8.92058924 C22.4060014,8.88185624 22.4572275,8.83063012 22.4959605,8.7703788 C22.6452866,8.53809377 22.5780351,8.22873685 22.3457501,8.07941076 L22.3457501,8.07941076 L16.7703788,4.49524351 C16.6897301,4.44339794 16.5958758,4.41583275 16.5,4.41583275 C16.2238576,4.41583275 16,4.63969037 16,4.91583275 L16,7 L15,7 L15,7.05492878 Z M16,32 C7.163444,32 0,24.836556 0,16 C0,7.163444 7.163444,0 16,0 C24.836556,0 32,7.163444 32,16 C32,24.836556 24.836556,32 16,32 Z" />
-			</svg>
-		</a>
-		{/if}
-	</div>
-	{/if}
+    </form>
+  </div>
 </div>
 
 
@@ -116,6 +104,9 @@
 <script>
   import Axios from "axios";
   import "@/css/payments.css";
+  import '@/css/spinner.css';
+  import PaymentState from '@/components/PaymentState.svelte';
+  import SvelteRouter from 'svelte-router';
   import { get } from 'lodash';
 
   const stripe = Stripe(process.env.STRIPE_API_KEY);
@@ -134,13 +125,13 @@
         errors: {},
         state: "editing",
         receiptUrl: null,
-        paymentState: {
-          payment: null,
-          sms: null,
-          email: null,
-        }
+        paymentState: {}
 
       };
+    },
+    components: {
+      PaymentState,
+      RouterLink: SvelteRouter.RouterLink,
     },
     computed: {
       currentError: ({ errors }) => {
@@ -168,9 +159,9 @@
 
       resetForm(e) {
         const form = this.refs.paymentForm;
-        const container = this.refs.paymentContainer;
+        const container = this.refs.feedbackContainer;
 
-        container.classList.remove("submitted");
+        container.classList.remove("hidden");
         // e.preventDefault();
         // Resetting the form (instead of setting the value to `''` for each input)
         // helps us clear webkit autofill styles.
@@ -260,32 +251,35 @@
           that.triggerBrowserValidation();
           return;
         }
+          // Show a loading screen...
+
+          // Disable all inputs.
+          this.disableInputs();
 
         this.set({
           state: "submitting"
         });
 
         // Show a loading screen...
-        container.classList.add("submitting");
-
-        // Disable all inputs.
-        this.disableInputs();
+        container.classList.add("hidden");
 
         // execute the actual payments
         stripe.createToken(elements[0]).then(result => {
-          container.classList.remove("submitting");
           if (result.error) {
             // Inform the customer that there was an error.
-            this.enableInputs();
             this.set({
+          // container.classList.remove("submitting");
               state: "editing",
               errors: {
                 "0": "Failed to verify your card, please try again!"
               }
             });
-          } else if (result.token) {
             this.enableInputs();
-            this.completePayment(result.token);
+          } else if (result.token) {
+            this.completePayment(result.token)
+              .then(() => {
+                this.enableInputs();
+              });
           } else {
             this.enableInputs();
           }
@@ -293,9 +287,8 @@
       },
 
       completePayment(token) {
-        const container = this.refs.paymentContainer;
-
         const { amount, email, name, donate_to, phone, prefix } = this.get();
+        const container = this.refs.paymentContainer;
 
         const data = {
           appId: "rowtogether",
@@ -317,8 +310,8 @@
             "Content-Type": "application/json"
           }
         };
-        // Axios.post('http://localhost:3001/payments', data)
-        Axios.post("https://payments.kartoteket.as/payments", data, config)
+        return Axios.post('http://localhost:3001/payments', data, config)
+        // Axios.post("https://payments.kartoteket.as/payments", data, config)
           .then(r => {
             console.log(r);
             const state = get(r, 'data.payment.status')
