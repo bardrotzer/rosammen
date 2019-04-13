@@ -71,8 +71,7 @@ import PaymentForm from '@/components/PaymentForm.svelte'
 export default {
   data() {
     return {
-      logo: null,
-      name: null,
+      receiver_id: null,
       paymentSelected: null,
       amount: 0,
       paymentMethod: null,
@@ -80,7 +79,6 @@ export default {
       customer_email: '',
       customer_name: '',
       donate_to: null,
-      vipps: null,
       card: null,
     };
   },
@@ -92,6 +90,7 @@ export default {
   methods: {
 
     setPaymentMethod(method) {
+
       const { amount, minAmount } = this.get();
 
       if (amount >= minAmount) {
@@ -109,17 +108,7 @@ export default {
       this.fire('reset');
     },
 
-    setAmount(type) {
-      let amount;
-      const { currency } = this.get();
-
-      if (type === 'private') {
-        const { amountPrivate } = this.get();
-        amount = amountPrivate;
-      } else {
-        const { amountBusiness } = this.get();
-        amount = amountBusiness;
-      }
+    setAmount(amount) {
       this.set({amount: amount});
     },
 
@@ -129,24 +118,43 @@ export default {
     },
   },
   computed: {
-    amountPrivate({ currency }) {
-      return currency === 'NOK' ? 300 : 30;
+    receiver({ receiver_id, $receivers }) {
+      const rec = $receivers.find((r) => {
+        return r.id === receiver_id
+      })
+      return rec || {};
     },
-    amountBusiness({ currency }) {
-      return currency === 'NOK' ? 6000 : 600;
+    /**
+     * returns the name of the receiver
+     * @param {Object} receiver The computed receiver object
+     * @returns {String} the name of the receiver
+     */
+    name({ receiver }) {
+      return receiver.name;
     },
-    perKilometrePrivate({ currency }) {
-      if (currency === 'NOK') {
-        return '5 øre per kilometre';
-      }
-      return '0.05 Euro per ten kilometre';
+    /**
+     * returns the logo (image) of the receiver
+     * @param {Object} receiver The computed receiver object
+     * @returns {String} the name of the image file for the logo
+     */
+    logo({ receiver }) {
+      return 'img/' + receiver.logo;
     },
-
-    perKilometreBusiness({ currency }) {
-      if (currency === 'NOK') {
-        return '1 kroner per kilometre';
-      }
-      return '1 Euro per ten kilometre';
+    /**
+     * returns a boolean indicating if the receiver supports payment by vipps
+     * @param {Object} receiver The computed receiver object
+     * @returns {Boolean} wether or not the receiver supports vipps
+     */
+    vipps({ receiver }) {
+      return receiver.vipps
+    },
+    /**
+     * returns a boolean indicating if the receiver supports payment by card
+     * @param {Object} receiver The computed receiver object
+     * @returns {Boolean} wether or not the receiver supports card payments
+     */
+    card({ receiver }) {
+      return receiver.card
     },
     minAmount({currency}) {
       if (currency === 'NOK') {
@@ -156,14 +164,19 @@ export default {
     },
   },
   oncreate() {
-      const { data } = this.get();
-      this.set({
-        name: data.name,
-        logo: 'img/' + data.logo,
-        donate_to: data.name,
-        vipps: data.vipps,
-        card: data.card,
-      });
+    const { path } = this.get();
+    this.set({
+      receiver_id: path.id,
+    })
+    console.log(path.id);
+      // const { data } = this.get();
+      // this.set({
+      //   name: data.name,
+      //   logo: 'img/' + data.logo,
+      //   donate_to: data.name,
+      //   vipps: data.vipps,
+      //   card: data.card,
+      // });
 
       // this.setPaymentMethod('card');
   }
