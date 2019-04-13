@@ -63,26 +63,6 @@ export default {
         paymentsInitialized: false
       });
     },
-    selectDonationReceiver(receiver) {
-      // special case rowtogether
-      if (receiver === 'rowtogether') {
-        const { receiver_rowtogether } =  this.get();
-        this.set({selectedReceiver: receiver_rowtogether});
-      } else {
-        const { receivers } = this.get();
-        const r = receivers.find(element => {
-          return element.id === receiver;
-        });
-
-        this.set({selectedReceiver: r});
-      }
-      this.initializePayment();
-    },
-    initializePayment() {
-      if (this.paymentsInitialized) {
-        return;
-      }
-    },
     enableVipps() {
       this.set({
         useVipps: true,
@@ -98,23 +78,6 @@ export default {
       }
       return $receivers;
     },
-
-    perKilometrePrivate({ currency }) {
-      if (currency === 'NOK') {
-        return '5 øre per kilometre';
-      }
-      return '0.05 Euro per ten kilometre';
-    },
-
-    perKilometreBusiness({ currency }) {
-      if (currency === 'NOK') {
-        return '1 kroner per kilometre';
-      }
-      return '1 Euro per ten kilometre';
-    }
-  },
-  oncreate() {
-    // this.selectDonationReceiver('rowtogether');
   }
 
 }
