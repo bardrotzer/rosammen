@@ -66,6 +66,7 @@
 <script>
 import Axios from 'axios';
 import PaymentForm from '@/components/PaymentForm.svelte'
+// import SvelteRouter from 'svelte-router';
 
 export default {
   data() {
@@ -85,6 +86,7 @@ export default {
   },
   components: {
     PaymentForm,
+    // RouterLink: SvelteRouter.RouterLink,
   },
 
   methods: {
