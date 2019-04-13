@@ -1,4 +1,5 @@
 <div id="donate"  class="min-h-screen bg-c-darkgrey">
+
 {#if !selectedReceiver}
   <div class="px-4 pt-4 pb-4 xl:pb-10 container mx-auto lg:container ">
       <div class="font-sans text-c-orange text-4xl font-thin py-2 text-right sm:text-right md:text-left lg:text-left xl:text-left">
@@ -8,19 +9,16 @@
         I pay for the entire trip myself and would like to contribute to causes that are near to me. Accompany me on the ocean crossing by making a donation!
         </p>
       <p class="pt-2 text-sm sm:text-sm md:text-xl lg:text-xl xl:text-2xl text-white font-sans  md:font-thin lg:font-thin xl:font-thin">
-      Those who donate will have your name, or the name of your company (please send the logo), on the website and do the crossing with us! I suggest a donation of {perKilometrePrivate} for private individuals, or {perKilometreBusiness} for companies, but any donation is welcome.</p>
+      Those who donate will have your name, or the name of your company (please send the logo), on the website and do the crossing with us! I suggest a donation of 5 øre per kilometre (0.005 EUR) for private individuals, or 1 krone per kilometre (0.1 EUR) for companies, but any donation is welcome.</p>
   </div>
 
-  {#if vippsEnabled || useVipps}
-    <div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
+
+    <div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-wrap flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
       {#each receivers as receiver}
-        <Receiver data={receiver} on:selected="selectDonationReceiver(receiver.id)" />
+        <Receiver data={receiver} />
       {/each}
     </div>
-  {/if}
-  <div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10 flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row items-center">
-    <Receiver data={receiver_rowtogether} on:selected="selectDonationReceiver(receiver_rowtogether.id)" />
-  </div>
+
   {#if !vippsEnabled && !useVipps}
   <div class="container mx-auto pt-0 md:pt-6 lg:pt-8 xl:pt-10  items-center">
     <p class="py-2 text-center text-sm sm:text-sm md:text-xl lg:text-xl xl:text-2xl text-white font-sans  md:font-thin lg:font-thin xl:font-thin">
