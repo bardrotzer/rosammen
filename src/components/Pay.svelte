@@ -1,11 +1,11 @@
 
-<div class="max-w-sm  container mx-auto ">
+<div class="max-w-sm  container mx-auto bg-c-darkgrey">
   <div class=" relative">
   <div class="text-center">
     <p class="font-sans text-c-orange text-xl sm:text-xl md:text-4xl lg:text-4xl xl:text-4xl font-thin pt-6">
     Donate to {name}
     </p>
-    <img class="h-32 xl:h-48 rounded-full border-2 m-4 border-c-orange" src="{logo}" alt="{name}"/>
+   <img class="h-32 xl:h-48 rounded-full border-2 m-4 border-c-orange" src="{logo}" alt="{name}"/>
   </div>
 {#if paymentMethod === 'card'}
   <PaymentForm
@@ -24,19 +24,20 @@
     {:else}
       <div class="flex text-c-orange">
       <div class="w-1/2 h-12 content-start">
-        <label for="card-number" class="block text-sm md:text-base lg:text-base xl:text-base px-2">Amount (in {currency}):</label>
-        <span class="text-xs md:text-sm lg:text-sm xl:text-sm px-2 text-c-orange">min {minAmount}</span>
+        <label for="card-number" class="block text-sm md:text-base lg:text-base xl:text-base px-2">Amount (in NOK):</label>
+        <span class="text-xs md:text-sm lg:text-sm xl:text-sm px-2 text-c-orange">min 50 (5 EUR)</span>
       </div>
       <div class="w-1/2 px-2">
         <input type="number" bind:value=amount class="appearance-none text-4xl text-c-orange bg-c-darkgrey border-c-orange border-b border-b-2 w-full py-2 px-2  focus:outline-none focus:shadow-outline">
+        <span class="text-sm px-2">{amount ? (amount * 0.1) +' Eur' : ''}</span>
       </div>
     </div>
     <div class="text-white text-sm md:text-base lg:text-base xl:text-base text-left py-6">
       <p>As a supporter you will have your name, or the name of your company, on the website (please send the logo). You will also receive optional daily updates on sms and do the crossing with us!</p>
     </div>
     {/if}
-    <div class="text-white text-sm md:text-base lg:text-base xl:text-base text-left py-6">
-      <p class="pt-2">I suggest a donation of {perKilometrePrivate} for private individuals (<span class="no-underline text-c-orange" on:click="setAmount('private')">{amountPrivate}</span> {currency}), or {perKilometreBusiness} for companies (<span class="no-underline text-c-orange" on:click="setAmount('business')">{amountBusiness}</span> {currency}), but any donation is welcome.</p>
+    <div class="text-white text-sm md:text-base lg:text-base xl:text-base text-left pb-6">
+      <p class="pt-2">I suggest a donation of 5 øre per kilometre (0.005 EUR) for private individuals (<span class="no-underline text-c-orange" on:click="setAmount(300)">300</span> NOK), or 1 kroner per kilometre (0.1 EUR) for companies (<span class="no-underline text-c-orange" on:click="setAmount(6000)">6000</span> NOK), but any donation is welcome.</p>
 
     </div>
 
@@ -57,7 +58,7 @@
     {/if}
   </div>
   <div class="flex-1 w-full h-12 py-4 text-center">
-    <button on:click="reset()" class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-grey text-grey hover:bg-grey hover:text-white">Back</button>
+    <!-- <RouterLink to="/donate" className="text-xs no-underline font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-grey text-grey hover:bg-grey hover:text-white">Back</RouterLink> -->
   </div>
 {/if}
   </div>
