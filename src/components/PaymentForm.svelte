@@ -306,8 +306,8 @@
             "Content-Type": "application/json"
           }
         };
-
-        Axios.post(clientUrl('payments'), data, config)
+        const url = clientUrl('payments')
+        Axios.post(url, data, config)
           .then(r => {
             console.log(r);
             const state = get(r, 'data.payment.status')
