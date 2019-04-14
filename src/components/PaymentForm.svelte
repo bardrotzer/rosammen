@@ -262,7 +262,6 @@
 
         // execute the actual payments
         stripe.createToken(elements[0]).then(result => {
-          console.log(result);
           if (result.error) {
             // Inform the customer that there was an error.
             container.classList.remove("hidden");
@@ -272,15 +271,11 @@
                 "0": "Failed to verify your card, please try again!"
               }
             });
-            this.enableInputs();
           } else if (result.token) {
             this.completePayment(result.token)
-              .then(() => {
-                this.enableInputs();
-              });
-          } else {
-            this.enableInputs();
           }
+          // reenable imnputs
+          this.enableInputs();
         })
         .catch((e) => {
           console.log(e);
