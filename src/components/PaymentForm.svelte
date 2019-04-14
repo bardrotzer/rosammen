@@ -29,6 +29,9 @@
   {/if}
 
 <div class="payments" ref:paymentContainer>
+  {#if currentError}
+    <Alert title="Card verification error" text={currentError}/>
+  {/if}
 	<div class="text-c-orange p-4 font-thin">
 		You are about to donate <strong>{amount}</strong> to {donate_to }.
 		{#if amount > 5900}
@@ -77,10 +80,6 @@
 					<label for="payments-phone">Phone <span class="text:xs">(optional)</span></label>
 				</div>
 			</div>
-			{#if currentError}
-
-      <Alert title="Card verification failed" text={currentError}/>
-			{/if}
 			<div class="flex p-5">
 				<div class="flex-1 w-1/2 h-12 px-2">
 					<button on:click="resetForm()" class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-grey text-grey hover:bg-grey hover:text-white">Back</button>
