@@ -28,9 +28,9 @@
 			</p>
 		</div>
 
-		<a href="#who" class="absolute pin-b arrow bounce"> </a>
+		<a href="#" class="absolute pin-b arrow bounce"> </a>
 	</div>
-  <div id="who" class="h-screen scroll__child">
+  <div id="who" class="h-screen scroll__child  bg-white">
   <div class="hidden sm:hidden lg:block xl:block md:hidden crew__background">
     <div class="leading-tight font-sans text-c-orange p-10 text-sm float-left">(from left) Niklas, Jakob, Ralph (Skipper) and James. Missing from the photo are Tessa and James</div>
 
