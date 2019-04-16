@@ -46,8 +46,7 @@ export default {
         this.set({
           log: text,
         });
-      })
-    console.log('created travellog');
+      });
   }
 }
 </script>
