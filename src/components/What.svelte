@@ -53,13 +53,44 @@
     </div>
   </div>
 </div>
+<div class="bg-white">
+		<div class="text-c-orange text-4xl text-center mb-8">
+			Our Sponsors
+		</div>
+
+	{#each sponsors as sponsor }
+		<Sponsor data={sponsor} />
+	{/each}
+</div>
+<div>
+</div>
+
   <script>
 	import SvelteRouter from 'svelte-router';
+	import Sponsor from '@/components/common/Sponsor.svelte';
+	import clientUrl from '@/utils/clientUrl';
+	import Axios from 'axios';
 
   export default {
+		data() {
+			return {
+				sponsors: []
+			}
+		},
     components: {
-      RouterLink: SvelteRouter.RouterLink,
-    }
+			RouterLink: SvelteRouter.RouterLink,
+			Sponsor,
+		},
+		oncreate() {
+			Axios.get(clientUrl('assets', 'sponsors.json'))
+      .then((r) => {
+        console.log(r);
+        // const text = this.getParsed(r.data)
+        this.set({
+          sponsors: r.data,
+        });
+      });
+		}
   }
 
   </script>
