@@ -53,7 +53,7 @@
     </div>
   </div>
 </div>
-<div class="bg-white">
+<div id="sponsors" class="bg-white">
 		<div class="text-c-orange text-4xl text-center mb-8">
 			Our Sponsors
 		</div>
