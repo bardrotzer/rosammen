@@ -5,7 +5,9 @@ const urls = {
   // returns an asset
   assets: name => `${baseUrl}/assets/${name}`,
   payments: () => process.env.PAYMENTS_BASE_URL,
-}
+  photoSmall: img => `${baseUrl}/photos/sm/${img}`,
+  photo: img => `${baseUrl}/photos/lg/${img}`,
+ }
 
 /**
  * Creates a route with an absolute url from the baseUrl
