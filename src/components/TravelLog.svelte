@@ -5,7 +5,7 @@ The travel log is my personal day-by-day (ish) recordings of life at sea. This i
 
   {#each log as logItem}
     <div class="py-3 logItem border-t">
-      <span class="text-lg font-bold">{logItem.title} - </span> <span class="text-c-darkgrey">{logItem.date}</span>
+      <span class="text-lg font-bold">{logItem.title} - </span> <span class="text-c-darkgrey">{logItem.when}</span>
         {@html logItem.text}
     </div>
   {/each}
@@ -29,7 +29,8 @@ export default {
       data.forEach((a) => {
         const list = a.text.split('\n');
         a.text = '<p>' + list.join('</p><p>') + '</p>'
-        a.date = moment(new Date(a.date)).fromNow();
+        a.date = new Date(a.date); //
+        a.when = moment(a.date).fromNow();
       })
       data.sort(sortASC);
       return data;
