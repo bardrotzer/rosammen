@@ -10,7 +10,12 @@ const router = new SvelteRouter({
   mode: 'hash',
   routes: {
     '/log': TravelLog,
-    '/': What,
+    '/': {
+      Component: What,
+      props: {
+        store,
+      }
+    },
     // '/who': Who,
     '/donate': {
       Component: Donate,

@@ -35,6 +35,8 @@ const store = new Store({
     link: 'https://www.rowtogether.no/',
     id: 'rowtogether',
   }],
+  distance: null,
+  distances: [],
 
 
 });
