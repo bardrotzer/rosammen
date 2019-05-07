@@ -37,7 +37,7 @@ const calculateDistance = (data) => {
   }
 
   const lastPos = data[data.length - 1];
-  const remaining =  Math.round(getDistance(L.latLng(lastPos.lat, lastPos.lon),END));
+  const remaining =  Math.round(getDistance(L.latLng(lastPos.lat, lastPos.lon),END) / 1000);
 
   store.set({
     distances: distanceList,
