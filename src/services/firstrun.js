@@ -11,11 +11,13 @@ import clientUrl from '@/utils/clientUrl';
 import moment from 'moment';
 
 const KNOT = 0.539957;
+const END = L.latLng(4.93854, -52.335);
 
 const calculateDistance = (data) => {
   let total = 0;
   const distanceList = [];
   const numItems = data.length - 1;
+  // iterate all positions calculating the distance.
   for(let i = 0; i < numItems; i += 1) {
     const item1 = data[i];
     const item2 = data[i + 1];
@@ -32,11 +34,15 @@ const calculateDistance = (data) => {
       kmh: speed,
       knots: speed * KNOT
     });
-    console.log(dist);
   }
+
+  const lastPos = data[data.length - 1];
+  const remaining =  Math.round(getDistance(L.latLng(lastPos.lat, lastPos.lon),END));
+
   store.set({
     distances: distanceList,
-    distance: Math.round(total/1000)
+    distance: Math.round(total/1000),
+    remainingDistance: remaining,
   });
 
   // console.log(Math.round(total/1000));

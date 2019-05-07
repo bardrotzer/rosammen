@@ -37,6 +37,7 @@ const store = new Store({
   }],
   distance: null,
   distances: [],
+  remainingDistance: null,
 
 
 });
