@@ -41,9 +41,6 @@ export default {
     tagline({data}) {
       return data.tagline || null;
     }
-  },
-  oncreate() {
-    console.log(this.get());
   }
 }
 
