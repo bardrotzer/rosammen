@@ -1,3 +1,4 @@
+ <svelte:window on:resize="resizeChart()"/>
  <div id="what" class="font-sans h-full scroll__child  boat__background static">
 
 <!-- blocks for small screens-->
@@ -5,15 +6,18 @@
 		<!-- <img alt="row" src="img/frontpage.jpg" class="frontpage__image"/> -->
 
 		<!-- what -->
-		<div  class="container lg:container p-4 mx-auto">
+		<div class="container lg:container p-4 mx-auto">
 		<div class="sm:block md:hidden lg:hidden xl:hidden  text-c-orange text-4xl font-thin text-center mb-8">
 			The Atlantic crossing
 		</div>
-			<p class="md:text-4xl lg:text-4xl xl:text-5xl lg:pb-20 xl:pb-24 pb-4 container mx-auto text-center">
+			<p ref:container class="md:text-4xl lg:text-4xl xl:text-5xl lg:pb-20 xl:pb-24 pb-4 container mx-auto text-center">
 			This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days.
-			<span class="text-c-orange block">
+			<span  class="text-c-orange block">
 				The team has traveled {$distance} km and are currently traveling at {knots} knots ({kmh} km/h)
 			</span>
+			</p>
+
+			<p class="js-progressbar">
 			</p>
 
 			<p class="absolute pin-b md:text-xl lg:text-xl xl:text-2xl text-white lg:pb-4 xl:pb-4 pb-8 container mx-auto">
@@ -63,11 +67,26 @@
 	import Sponsor from '@/components/common/Sponsor.svelte';
 	import clientUrl from '@/utils/clientUrl';
 	import Axios from 'axios';
+	import ProgressBar from '@/classes/ProgressBar'
+	let progressBar;
+	let timeout;
 
   export default {
 		data() {
 			return {
 				sponsors: []
+			}
+		},
+		methods: {
+			resizeChart() {
+				progressBar.width = this.refs.container.clientWidth;
+				if(!timeout) {
+					timeout = setTimeout(() => {
+						progressBar.draw();
+						clearTimeout(timeout);
+						timeout = null;
+					}, 100)
+				}
 			}
 		},
     components: {
@@ -91,14 +110,26 @@
 			}
 		},
 		oncreate() {
+			progressBar = new ProgressBar('.js-progressbar');
+			progressBar.width = this.refs.container.clientWidth;
+			console.log(this.refs.container);
+
+			this.store.on('state', ({ current, changed, previous }) => {
+				if (changed.distance || changed.remainingDistance) {
+					progressBar.distance = current.distance;
+					progressBar.remaining = current.remainingDistance;
+					progressBar.draw();
+				}
+			});
+
 			Axios.get(clientUrl('assets', 'sponsors.json'))
       .then((r) => {
-        console.log(r);
         // const text = this.getParsed(r.data)
         this.set({
           sponsors: r.data,
         });
-      });
+			});
+
 		}
   }
 
