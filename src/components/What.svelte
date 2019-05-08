@@ -7,19 +7,29 @@
 		<!-- <img alt="row" src="img/frontpage.jpg" class="frontpage__image"/> -->
 
 		<!-- what -->
-		<div class="container lg:container p-4 mx-auto">
+	<div class="container lg:container p-4 mx-auto">
 		<div class="sm:block md:hidden lg:hidden xl:hidden  text-c-orange text-4xl font-thin text-center mb-8">
 			The Atlantic crossing
 		</div>
 			<p ref:container class="md:text-4xl lg:text-4xl xl:text-5xl lg:pb-20 xl:pb-24 pb-4 container mx-auto text-center">
 			This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days.
-			<span  class="text-c-orange block">
-				The team has traveled {Math.round($distance)} km and are currently traveling at {knots} knots ({kmh} km/h)
-			</span>
-			</p>
 
-			<p class="js-progressbar"></p>
-			<p class="js-speedchart"></p>
+			</p>
+			<div ref:distance class="w-full md:w-2/5 lg:w-2/5 xl:w-2/5 mr-8">
+				<span  class="text-c-orange">
+					The team has traveled {Math.round($distance)} km since April 1st.
+				</span>
+				<p class="js-progressbar pt-4"></p>
+			</div>
+
+			<div ref:speed class="w-full md:w-2/5 lg:w-2/5 xl:w-2/5  mr-8">
+				<span  class="text-c-orange">
+					Currently the team are moving at an average of {knots} knots ({kmh} km/h)
+				</span>
+				<p class="js-speedchart pt-4"></p>
+			</div>
+
+
 
 			<p class="absolute pin-b md:text-xl lg:text-xl xl:text-2xl text-white lg:pb-4 xl:pb-4 pb-8 container mx-auto">
 				The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
@@ -83,8 +93,8 @@
 		},
 		methods: {
 			resizeChart() {
-				progressBar.width = this.refs.container.clientWidth;
-				speedChart.width = this.refs.container.clientWidth;
+				progressBar.width = this.refs.distance.clientWidth;
+				speedChart.width = this.refs.speed.clientWidth;
 				if(!timeout) {
 					timeout = setTimeout(() => {
 						progressBar.draw();
@@ -118,10 +128,10 @@
 		},
 		oncreate() {
 			progressBar = new ProgressBar('.js-progressbar');
-			progressBar.width = this.refs.container.clientWidth;
+			progressBar.width = this.refs.distance.clientWidth;
 
 			speedChart = new SpeedChart('.js-speedchart');
-			speedChart.width = this.refs.container.clientWidth;
+			speedChart.width = this.refs.speed.clientWidth;
 
 			this.store.on('state', ({ current, changed, previous }) => {
 
