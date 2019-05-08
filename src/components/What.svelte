@@ -16,6 +16,10 @@
 
 			</p>
 			<div ref:distance class="w-full md:w-2/5 lg:w-2/5 xl:w-2/5 mr-8">
+				<p class="js-radialprogress">
+
+				</p>
+
 				<span  class="text-c-orange">
 					The team has traveled {Math.round($distance)} km since April 1st.
 				</span>
@@ -80,8 +84,10 @@
 	import Axios from 'axios';
 	import ProgressBar from '@/classes/ProgressBar'
 	import SpeedChart from '@/classes/SpeedChart'
+	import RadialProgress from '@/classes/RadialProgress'
 
 	let progressBar;
+	let radialProgress;
 	let speedChart;
 	let timeout;
 
@@ -95,10 +101,13 @@
 			resizeChart() {
 				progressBar.width = this.refs.distance.clientWidth;
 				speedChart.width = this.refs.speed.clientWidth;
+				radialProgress.width = this.refs.distance.clientWidth;
 				if(!timeout) {
 					timeout = setTimeout(() => {
+						const { kmh } = this.get();
 						progressBar.draw();
 						speedChart.draw();
+						radialProgress.draw(kmh)
 
 						clearTimeout(timeout);
 						timeout = null;
@@ -133,13 +142,22 @@
 			speedChart = new SpeedChart('.js-speedchart');
 			speedChart.width = this.refs.speed.clientWidth;
 
+			radialProgress = new RadialProgress('.js-radialprogress');
+			radialProgress.width = this.refs.speed.clientWidth;
+
 			this.store.on('state', ({ current, changed, previous }) => {
 
 				// draw progressbar on data
 				if (changed.distance || changed.remainingDistance) {
+					const item = current.distances[current.distances.length - 1];
+
 					progressBar.distance = current.distance;
 					progressBar.remaining = current.remainingDistance;
 					progressBar.draw();
+
+					radialProgress.distance = current.distance;
+					radialProgress.remaining = current.remainingDistance;
+					radialProgress.draw(item.kmh);
 				}
 				// draw speedchart on data
 				if (changed.distances) {
