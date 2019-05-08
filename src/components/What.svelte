@@ -1,5 +1,6 @@
  <svelte:window on:resize="resizeChart()"/>
- <div id="what" class="font-sans h-full scroll__child  boat__background static">
+ <div id="what" class="font-sans h-full scroll__child bg-grey static">
+ <!-- <div id="what" class="font-sans h-full scroll__child  boat__background static"> -->
 
 <!-- blocks for small screens-->
 	<!-- <div class="lg:hidden xl:hidden sm:block md:hidden"> -->
@@ -13,19 +14,19 @@
 			<p ref:container class="md:text-4xl lg:text-4xl xl:text-5xl lg:pb-20 xl:pb-24 pb-4 container mx-auto text-center">
 			This Atlantic crossing is a world record attempt to row continent to continent in less than 48 days.
 			<span  class="text-c-orange block">
-				The team has traveled {$distance} km and are currently traveling at {knots} knots ({kmh} km/h)
+				The team has traveled {Math.round($distance)} km and are currently traveling at {knots} knots ({kmh} km/h)
 			</span>
 			</p>
 
-			<p class="js-progressbar">
-			</p>
+			<p class="js-progressbar"></p>
+			<p class="js-speedchart"></p>
 
 			<p class="absolute pin-b md:text-xl lg:text-xl xl:text-2xl text-white lg:pb-4 xl:pb-4 pb-8 container mx-auto">
 				The ocean rowboat is a Rannoch 45 mono-hull made of carbon and Kevlar. It is designed and built by experienced marine architects. The boat is safe, strong and fast.
 			</p>
 		</div>
 
-		<a href="#" class="absolute pin-b arrow bounce"> </a>
+		<div class="absolute pin-b arrow bounce"> </div>
 	</div>
   <div id="who" class="h-screen scroll__child  bg-white">
   <div class="hidden sm:hidden lg:block xl:block md:hidden crew__background">
@@ -68,7 +69,10 @@
 	import clientUrl from '@/utils/clientUrl';
 	import Axios from 'axios';
 	import ProgressBar from '@/classes/ProgressBar'
+	import SpeedChart from '@/classes/SpeedChart'
+
 	let progressBar;
+	let speedChart;
 	let timeout;
 
   export default {
@@ -80,9 +84,12 @@
 		methods: {
 			resizeChart() {
 				progressBar.width = this.refs.container.clientWidth;
+				speedChart.width = this.refs.container.clientWidth;
 				if(!timeout) {
 					timeout = setTimeout(() => {
 						progressBar.draw();
+						speedChart.draw();
+
 						clearTimeout(timeout);
 						timeout = null;
 					}, 100)
@@ -97,14 +104,14 @@
 			knots: ({$distances}) => {
 				if ($distances.length) {
 					const item = $distances[$distances.length - 1];
-					return Math.round(item.knots);
+					return (item.knots).toFixed(1);
 				}
 				return '';
 			},
 			kmh: ({$distances}) => {
 				if ($distances.length) {
 					const item = $distances[$distances.length - 1];
-					return Math.round(item.kmh);
+					return (item.kmh).toFixed(1);
 				}
 				return '';
 			}
@@ -112,13 +119,22 @@
 		oncreate() {
 			progressBar = new ProgressBar('.js-progressbar');
 			progressBar.width = this.refs.container.clientWidth;
-			console.log(this.refs.container);
+
+			speedChart = new SpeedChart('.js-speedchart');
+			speedChart.width = this.refs.container.clientWidth;
 
 			this.store.on('state', ({ current, changed, previous }) => {
+
+				// draw progressbar on data
 				if (changed.distance || changed.remainingDistance) {
 					progressBar.distance = current.distance;
 					progressBar.remaining = current.remainingDistance;
 					progressBar.draw();
+				}
+				// draw speedchart on data
+				if (changed.distances) {
+					speedChart.data = current.distances;
+					speedChart.draw();
 				}
 			});
 
