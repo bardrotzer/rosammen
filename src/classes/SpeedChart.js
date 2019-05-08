@@ -94,6 +94,28 @@ export default class SpeedChart {
     svg.append('g')
         .call(yAxis);
 
+    //     var gradient = svg.append("svg:defs")
+    //     .append("svg:linearGradient")
+    //     .attr("id", "gradient")
+    //     .attr("x1", "0%")
+    //     .attr("y1", "50%")
+    //     .attr("x2", "50%")
+    //     .attr("y2", "0%")
+    //     .attr("spreadMethod", "pad");
+
+    // gradient.append("svg:stop")
+    //     .attr("offset", "0%")
+    //     .attr("stop-color", "#B3CB74")
+    //     .attr("stop-opacity", 1);
+
+    // gradient.append("svg:stop")
+    //     .attr("offset", "100%")
+    //     .attr("stop-color", "#7C9B40")
+    //     .attr("stop-opacity", 1);
+
+
+
+
     // return svg.node();
   }
 
