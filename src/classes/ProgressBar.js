@@ -8,8 +8,6 @@ export default class ProgressBar {
     this._width = 500;
     this._distance = 0;
     this._remaining = 0;
-
-    console.log(this.selection);
   }
 
   set height(h) {
@@ -21,11 +19,11 @@ export default class ProgressBar {
   }
 
   set distance(d) {
-    this._distance = d;
+    this._distance = Number(d);
   }
 
   set remaining(r) {
-    this._remaining = r;
+    this._remaining = Number(r);
   }
 
   draw() {
@@ -37,10 +35,10 @@ export default class ProgressBar {
     select('.js-pr').remove();
 
     const svg = this.selection
-    .append('svg')
-    .attr('class', 'js-pr')
-		.attr('height', 100)
-		.attr('width', this._width);
+      .append('svg')
+      .attr('class', 'js-pr')
+      .attr('height', 100)
+      .attr('width', this._width);
 
 
 	svg.append('rect')
@@ -97,7 +95,7 @@ export default class ProgressBar {
           .attr('stroke', 'black');
 
   const description = svg.append('text')
-    .text(this._distance + 'km / ' + this._remaining +'km')
+    .text(Math.round(this._distance) + 'km / ' + Math.round(this._remaining) +'km')
     .attr('class', 'text-sm md:text-base lg:text-base xl:text-base')
     .attr('y', 60)
     .attr('x', 0)

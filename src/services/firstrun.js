@@ -21,14 +21,15 @@ const calculateDistance = (data) => {
   for(let i = 0; i < numItems; i += 1) {
     const item1 = data[i];
     const item2 = data[i + 1];
-    const dist = Math.round(getDistance(L.latLng(item1.lat, item1.lon),L.latLng(item2.lat, item2.lon)));
-    total += dist;
+    const dist = (getDistance(L.latLng(item1.lat, item1.lon),L.latLng(item2.lat, item2.lon))).toFixed(2);
+    total += Number(dist);
     const startTime = moment(item1.date);
     const endTime = moment(item2.date);
     const duration = moment.duration(endTime.diff(startTime));
     const time = duration.as('minutes') / 60
     const speed = (dist / time) / 1000;
     distanceList.push({
+      date: endTime.toDate(),
       time: duration,
       distance: dist,
       kmh: speed,
@@ -37,11 +38,11 @@ const calculateDistance = (data) => {
   }
 
   const lastPos = data[data.length - 1];
-  const remaining =  Math.round(getDistance(L.latLng(lastPos.lat, lastPos.lon),END) / 1000);
+  const remaining =  (getDistance(L.latLng(lastPos.lat, lastPos.lon),END) / 1000).toFixed(2);
 
   store.set({
     distances: distanceList,
-    distance: Math.round(total/1000),
+    distance: (total/1000),
     remainingDistance: remaining,
   });
 
