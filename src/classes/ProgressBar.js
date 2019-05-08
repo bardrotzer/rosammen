@@ -76,13 +76,13 @@ export default class ProgressBar {
   svg.append('text')
     .text('Portmao')
     .attr('class', 'text-sm md:text-base lg:text-base xl:text-base')
-    .attr('y', 10)
+    .attr('y', 12)
     .attr('text-anchor', 'start');
 
   svg.append('text')
     .text('Cayenne')
     .attr('class', 'text-sm md:text-base lg:text-base xl:text-base')
-    .attr('y', 10)
+    .attr('y', 12)
     .attr('x', this._width)
     .attr('text-anchor', 'end');
 
