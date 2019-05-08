@@ -45,58 +45,54 @@ export default class ProgressBar {
 
 	svg.append('rect')
 		.attr('class', 'bg-rect')
-		// .attr('rx', 10)
-		// .attr('ry', 10)
 		.attr('fill', 'gray')
 		.attr('height', this._height)
 		.attr('width', this._width)
     .attr('x', 0)
-    .attr('y', 0);
+    .attr('y', 20);
 
     const progress = svg.append('rect')
     .attr('class', 'progress-rect')
     .attr('fill', '#FC6C0C')
     .attr('height', this._height)
     .attr('width', 0)
-    // .attr('rx', 10)
-    // .attr('ry', 10)
     .attr('x', 0)
-    .attr('y', 0);
+    .attr('y', 20);
 
   svg.append('line')
     .attr('x1', 0)
-    .attr('y1', 0)
+    .attr('y1', 15)
     .attr('x2', 0)
-    .attr('y2', 30)
+    .attr('y2', 40)
     .attr('stroke-width', 1)
     .attr('stroke', 'black');
 
   svg.append('line')
     .attr('x1', this._width)
-    .attr('y1', 0)
+    .attr('y1', 15)
     .attr('x2', this._width)
-    .attr('y2', 30)
+    .attr('y2', 40)
     .attr('stroke-width', 1)
     .attr('stroke', 'black');
 
   svg.append('text')
     .text('Portmao')
     .attr('class', 'text-sm md:text-base lg:text-base xl:text-base')
-    .attr('y', 45)
+    .attr('y', 10)
     .attr('text-anchor', 'start');
 
   svg.append('text')
     .text('Cayenne')
     .attr('class', 'text-sm md:text-base lg:text-base xl:text-base')
-    .attr('y', 45)
+    .attr('y', 10)
     .attr('x', this._width)
     .attr('text-anchor', 'end');
 
   const midline = svg.append('line')
           .attr('x1', 0)
-          .attr('y1', 0)
+          .attr('y1', 20)
           .attr('x2', 0)
-          .attr('y2', 30)
+          .attr('y2', 44)
           .attr('stroke-width', 1)
           .attr('stroke', 'black');
 
