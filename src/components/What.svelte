@@ -117,6 +117,26 @@
 						timeout = null;
 					}, 100)
 				}
+			},
+			createCharts(distance, remainingDistance, distanceList) {
+				const item = distanceList[distanceList.length - 1];
+
+				progressBar.distance = distance;
+				progressBar.remaining = remainingDistance;
+				progressBar.draw();
+
+				radialProgress.distance = distance;
+				radialProgress.remaining = remainingDistance;
+				radialProgress.draw(item.kmh);
+
+				this.set({
+					daysLeft: radialProgress.daysLeft,
+				});
+
+				// draw speedchart on data
+				speedChart.data = distanceList;
+				speedChart.draw();
+
 			}
 		},
     components: {
@@ -149,28 +169,18 @@
 			radialProgress = new RadialProgress('.js-radialprogress');
 			radialProgress.width = this.refs.speed.clientWidth;
 
+			const { distance, distances, remainingDistance } = this.store.get();
+
+			if (distance && remainingDistance && distances.length) {
+				this.createCharts(distance, remainingDistance,  distances)
+			}
+
 			this.store.on('state', ({ current, changed, previous }) => {
 
+				console.log(changed);
 				// draw progressbar on data
-				if (changed.distance || changed.remainingDistance) {
-					const item = current.distances[current.distances.length - 1];
-
-					progressBar.distance = current.distance;
-					progressBar.remaining = current.remainingDistance;
-					progressBar.draw();
-
-					radialProgress.distance = current.distance;
-					radialProgress.remaining = current.remainingDistance;
-					radialProgress.draw(item.kmh);
-
-					this.set({
-						daysLeft: radialProgress.daysLeft,
-					});
-				}
-				// draw speedchart on data
-				if (changed.distances) {
-					speedChart.data = current.distances;
-					speedChart.draw();
+				if (changed.distance || changed.remainingDistance || changed.distances) {
+					this.createCharts(current.distance, current.remainingDistance, current.distances)
 				}
 			});
 
