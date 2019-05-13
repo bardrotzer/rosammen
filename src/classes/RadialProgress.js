@@ -11,8 +11,13 @@ export default class RadialProgress {
     this._width = 200;
     this._distance = 0;
     this._remaining = 0;
+    this._daysLeft = 0;
     this.total = 0;
     this.margin = 20;
+  }
+
+  get daysLeft() {
+    return this._daysLeft;
   }
 
   set height(h) {
@@ -35,7 +40,7 @@ export default class RadialProgress {
 
   draw(kmh) {
     const kmd = kmh * 24;
-    const remainingDays = Math.round(this._remaining / kmd)
+    this._daysLeft = Math.round(this._remaining / kmd)
     const radius = (this._height - (this.margin * 2)) * 0.5;
     const center = radius + this.margin;
     const left = this._width * 0.5;
@@ -103,15 +108,15 @@ export default class RadialProgress {
   meter.append('text')
       .attr('fill', '#474044')
       .attr('text-anchor', 'middle')
-      .attr('dy', '-0.778em')
+      .attr('dy', '-2.6em')
       .attr('dx', '-3.778em')
       .attr('class', 'text-2xl')
-      .text(remainingDays)
+      .text(this._daysLeft)
 
   meter.append('text')
       .attr('fill', '#474044')
       .attr('text-anchor', 'middle')
-      .attr('dy', '-0.378em')
+      .attr('dy', '-2.878em')
       .attr('dx', '-6.478em')
       .attr('class', 'text-sm')
       .text('remaining')
