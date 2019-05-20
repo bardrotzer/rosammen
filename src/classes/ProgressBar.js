@@ -30,6 +30,7 @@ export default class ProgressBar {
     const total = this._distance + this._remaining;
     const factor = this._width / total;
     const lineWidth = factor * this._distance;
+    const maxDist = Math.min(lineWidth, this._width - 60);
     const fontfamily = 'system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto';
 
     select('.js-pr').remove();
@@ -113,7 +114,7 @@ export default class ProgressBar {
 
   description.transition()
     .duration(1000)
-    .attr('x', lineWidth);
+    .attr('x', maxDist);
 	// function moveProgressBar(state){
 	// 	progress.transition()
 	// 		.duration(1000)
