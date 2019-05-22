@@ -96,11 +96,11 @@ export default class ProgressBar {
           .attr('stroke', 'black');
 
   const description = svg.append('text')
-    .text(Math.round(this._distance) + 'km / ' + Math.round(this._remaining) +'km')
+    .text(Math.round(this._distance) + 'km')
     .attr('class', 'text-sm md:text-base lg:text-base xl:text-base')
     .attr('y', 60)
     .attr('x', 0)
-    .attr('text-anchor', 'middle');
+    .attr('text-anchor', 'end');
 
 
 	progress.transition()
@@ -114,7 +114,7 @@ export default class ProgressBar {
 
   description.transition()
     .duration(1000)
-    .attr('x', maxDist);
+    .attr('x', lineWidth);
 	// function moveProgressBar(state){
 	// 	progress.transition()
 	// 		.duration(1000)

@@ -18,21 +18,21 @@
 			<div class="flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row ">
 			<div ref:distance class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 mr-8">
 				<span  class="text-c-orange">
-					If the team maintains the current speed at {knots} knots, they will spend {daysLeft} more days at sea.
+					The team has reached its destination Wednesday 22 May, after 51 Days at sea.
 				</span>
 				<p class="js-radialprogress">
 
 				</p>
 
 				<span  class="text-c-orange">
-					The team has traveled {Math.round($distance)} kilometers since April 1st with {Math.round($remainingDistance)} kilometers left.
+					The team has traveled {Math.round($distance)} kilometers since April 1st.
 				</span>
 				<p class="js-progressbar pt-4"></p>
 			</div>
 
 			<div ref:speed class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 mr-8">
 				<span  class="text-c-orange">
-					Currently the team are moving at an average of {knots} knots ({kmh} km/h)
+					The team has stopped rowing, historical data below.
 				</span>
 				<p class="js-speedchart pt-4"></p>
 			</div>

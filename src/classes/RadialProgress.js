@@ -102,23 +102,6 @@ export default class RadialProgress {
       .attr('text-anchor', 'middle')
       .attr('dy', '1.578em')
       .attr('class', 'text-base')
-      .text('days at sea')
-
-
-  meter.append('text')
-      .attr('fill', '#474044')
-      .attr('text-anchor', 'middle')
-      .attr('dy', '-2.6em')
-      .attr('dx', '-3.778em')
-      .attr('class', 'text-2xl')
-      .text(this._daysLeft)
-
-  meter.append('text')
-      .attr('fill', '#474044')
-      .attr('text-anchor', 'middle')
-      .attr('dy', '-2.878em')
-      .attr('dx', '-6.478em')
-      .attr('class', 'text-sm')
-      .text('remaining')
+      .text('days at sea');
   }
 }
